@@ -20,6 +20,6 @@ extern int  cant_colaboradores;
 //agregamos la funciones a utilizar
 void listarColaboradores();
 void modificarColaborador();
-
+void agregarColaborador();
 #endif
 
