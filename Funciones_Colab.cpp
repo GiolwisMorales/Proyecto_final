@@ -3,7 +3,7 @@
 
 using namespace std;
 
-// La máxima cantidad de colaboradores que habrá
+// La mï¿½xima cantidad de colaboradores que habrï¿½
 const int maximo = 50;
 
 // Contador que inicia en 0
@@ -12,7 +12,7 @@ int cant_colaboradores = 0;
 // Arreglo de colaboradores
 datosColab colaborador[maximo];
 
-// ----------- FUNCIÓN: LISTAR COLABORADORES -----------
+// ----------- FUNCIï¿½N: LISTAR COLABORADORES -----------
 void listarColaboradores() {
     if (cant_colaboradores > 0) {
         cout << "Cantidad de colaboradores: " << cant_colaboradores << endl << endl;
@@ -21,8 +21,8 @@ void listarColaboradores() {
             cout << "Colaborador " << i + 1 << endl;
             cout << "Nombres: " << colaborador[i].nombres << endl;
             cout << "Edad: " << colaborador[i].edad << endl;
-            cout << "Código: " << colaborador[i].codigo << endl;
-            cout << "Teléfono: " << colaborador[i].telefono << endl;
+            cout << "Cï¿½digo: " << colaborador[i].codigo << endl;
+            cout << "Telï¿½fono: " << colaborador[i].telefono << endl;
             cout << endl;
         }
     } else {
@@ -30,40 +30,34 @@ void listarColaboradores() {
     }
 }
 
-// ----------- FUNCIÓN: MODIFICAR COLABORADOR -----------
+// ----------- FUNCIï¿½N: MODIFICAR COLABORADOR -----------
 void modificarColaborador() {
     if (cant_colaboradores == 0) {
         cout << "No hay colaboradores registrados." << endl;
         return;
     }
-
     string codigoBuscado;
-    cout << "Ingrese el código del colaborador que desea modificar: ";
+    cout << "Ingrese el cï¿½digo del colaborador que desea modificar: ";
     cin.ignore();
     getline(cin, codigoBuscado);
-
     for (int i = 0; i < cant_colaboradores; i++) {
         if (colaborador[i].codigo == codigoBuscado) {
             cout << "\nColaborador encontrado:" << endl;
             cout << "Nombre actual: " << colaborador[i].nombres << endl;
             cout << "Edad actual: " << colaborador[i].edad << endl;
-            cout << "Teléfono actual: " << colaborador[i].telefono << endl;
-
+            cout << "Telï¿½fono actual: " << colaborador[i].telefono << endl;
             string nuevoNombre, nuevoTelefono;
             int nuevaEdad;
-
-            cout << "\nNuevo nombre (dejar vacío para mantener): ";
+            cout << "\nNuevo nombre (dejar vacï¿½o para mantener): ";
             getline(cin, nuevoNombre);
             if (!nuevoNombre.empty()) {
                 colaborador[i].nombres = nuevoNombre;
             }
-
-            cout << "Nuevo teléfono (dejar vacío para mantener): ";
+            cout << "Nuevo telï¿½fono (dejar vacï¿½o para mantener): ";
             getline(cin, nuevoTelefono);
             if (!nuevoTelefono.empty()) {
                 colaborador[i].telefono = nuevoTelefono;
             }
-
             cout << "Nueva edad (poner -1 para mantener): ";
             cin >> nuevaEdad;
             if (nuevaEdad != -1) {
@@ -74,6 +68,27 @@ void modificarColaborador() {
             return;
         }
     }
+    cout << "\n? No se encontrï¿½ un colaborador con ese cï¿½digo." << endl;
+}
 
-    cout << "\n? No se encontró un colaborador con ese código." << endl;
+void eliminarColaborador() {
+	string nombre;
+	bool encontrado = false;
+	cout << "\n--- ELIMINAR COLABORADOR ---"<<endl;
+	cout << "Ingrese el nombre del colaborador a eliminar: ";
+	getline(cin, nombre);
+	for (int i = 0; i < cant_colaboradores; i++) {
+		if (colaborador[i].nombres == nombre) {
+			for (int j = i; j < cant_colaboradores - 1; j++) {
+				colaborador[j] = colaborador[j + 1];
+			}
+			cant_colaboradores--;
+			encontrado = true;
+			cout << "* Colaborador eliminado correctamente *"<<endl;
+			break;
+		}
+	}
+    if (!encontrado) {
+        cout << "Colaborador no encontrado."<<endl;
+    }
 }
