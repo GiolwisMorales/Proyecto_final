@@ -21,6 +21,7 @@ int main() {
         cout << "Elija una opcion: " << endl;
         cout << "3: Listar colaboradores" << endl;
         cout << "4: Modificar colaborador" << endl;
+        cout << "5. Eliminar colaborador"<<endl;
         cin >> opcion;
 
         if (opcion == 3) {
@@ -28,13 +29,15 @@ int main() {
         } 
 		else if (opcion == 4) {
             modificarColaborador();
-        } else {
+		}
+		else if (opcion == 5) {
+			eliminarColaborador();
+		} else {
             cout << "Opcion no valida." << endl;
         }
     } else {
         cout << "Opcion principal no valida." << endl;
     }
-
     return 0;
 }
 
