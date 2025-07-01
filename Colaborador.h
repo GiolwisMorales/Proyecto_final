@@ -21,7 +21,6 @@ extern int  cant_colaboradores;
 void listarColaboradores();
 void modificarColaborador();
 void eliminarColaborador();
-
+void agregarColaborador();
 
 #endif
-

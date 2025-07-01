@@ -3,7 +3,7 @@
 
 using namespace std;
 
-// La m�xima cantidad de colaboradores que habr�
+// La mï¿½xima cantidad de colaboradores que habrï¿½
 const int maximo = 50;
 
 // Contador que inicia en 0
@@ -12,7 +12,7 @@ int cant_colaboradores = 0;
 // Arreglo de colaboradores
 datosColab colaborador[maximo];
 
-// ----------- FUNCI�N: LISTAR COLABORADORES -----------
+// ----------- FUNCIï¿½N: LISTAR COLABORADORES -----------
 void listarColaboradores() {
     if (cant_colaboradores > 0) {
         cout << "Cantidad de colaboradores: " << cant_colaboradores << endl << endl;
@@ -21,8 +21,8 @@ void listarColaboradores() {
             cout << "Colaborador " << i + 1 << endl;
             cout << "Nombres: " << colaborador[i].nombres << endl;
             cout << "Edad: " << colaborador[i].edad << endl;
-            cout << "C�digo: " << colaborador[i].codigo << endl;
-            cout << "Tel�fono: " << colaborador[i].telefono << endl;
+            cout << "Cï¿½digo: " << colaborador[i].codigo << endl;
+            cout << "Telï¿½fono: " << colaborador[i].telefono << endl;
             cout << endl;
         }
     } else {
@@ -30,14 +30,14 @@ void listarColaboradores() {
     }
 }
 
-// ----------- FUNCI�N: MODIFICAR COLABORADOR -----------
+// ----------- FUNCIï¿½N: MODIFICAR COLABORADOR -----------
 void modificarColaborador() {
     if (cant_colaboradores == 0) {
         cout << "No hay colaboradores registrados." << endl;
         return;
     }
     string codigoBuscado;
-    cout << "Ingrese el c�digo del colaborador que desea modificar: ";
+    cout << "Ingrese el cï¿½digo del colaborador que desea modificar: ";
     cin.ignore();
     getline(cin, codigoBuscado);
     for (int i = 0; i < cant_colaboradores; i++) {
@@ -45,15 +45,15 @@ void modificarColaborador() {
             cout << "\nColaborador encontrado:" << endl;
             cout << "Nombre actual: " << colaborador[i].nombres << endl;
             cout << "Edad actual: " << colaborador[i].edad << endl;
-            cout << "Tel�fono actual: " << colaborador[i].telefono << endl;
+            cout << "Telï¿½fono actual: " << colaborador[i].telefono << endl;
             string nuevoNombre, nuevoTelefono;
             int nuevaEdad;
-            cout << "\nNuevo nombre (dejar vac�o para mantener): ";
+            cout << "\nNuevo nombre (dejar vacï¿½o para mantener): ";
             getline(cin, nuevoNombre);
             if (!nuevoNombre.empty()) {
                 colaborador[i].nombres = nuevoNombre;
             }
-            cout << "Nuevo tel�fono (dejar vac�o para mantener): ";
+            cout << "Nuevo telï¿½fono (dejar vacï¿½o para mantener): ";
             getline(cin, nuevoTelefono);
             if (!nuevoTelefono.empty()) {
                 colaborador[i].telefono = nuevoTelefono;
@@ -68,7 +68,7 @@ void modificarColaborador() {
             return;
         }
     }
-    cout << "\n? No se encontr� un colaborador con ese c�digo." << endl;
+    cout << "\n? No se encontrï¿½ un colaborador con ese cï¿½digo." << endl;
 }
 
 void eliminarColaborador() {
@@ -92,3 +92,31 @@ void eliminarColaborador() {
         cout << "Colaborador no encontrado."<<endl;
     }
 }
+// ----------- FUNCIï¿½N:Agregar Colaborador -----------
+void agregarColaborador() {
+    if (cant_colaboradores >= maximo) {
+        cout << "No se pueden agregar más colaboradores (límite alcanzado)." << endl;
+        return;
+    }
+
+    cout << "\n--- AGREGAR COLABORADOR ---" << endl;
+
+    cin.ignore(); // Limpia el buffer
+    cout << "Nombre: ";
+    getline(cin, colaborador[cant_colaboradores].nombres);
+
+    cout << "Edad: ";
+    cin >> colaborador[cant_colaboradores].edad;
+
+    cin.ignore(); // Limpia de nuevo
+    cout << "Teléfono: ";
+    getline(cin, colaborador[cant_colaboradores].telefono);
+
+    cout << "Código: ";
+    getline(cin, colaborador[cant_colaboradores].codigo);
+
+    cant_colaboradores++;
+
+    cout << "* Colaborador agregado correctamente *" << endl;
+}
+
