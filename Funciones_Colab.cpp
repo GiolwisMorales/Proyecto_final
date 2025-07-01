@@ -92,3 +92,27 @@ void eliminarColaborador() {
         cout << "Colaborador no encontrado."<<endl;
     }
 }
+
+// ----------- FUNCIï¿½N: AGREGAR COLABORADOR -----------
+
+
+void agregarColaborador() {
+    if (cant_colaboradores >= maximo) {
+        cout << "No se pueden agregar más colaboradores (límite alcanzado)." << endl;
+        return;
+    }
+    cout << "\n--- AGREGAR COLABORADOR ---" << endl;
+    cin.ignore(); // Limpia el buffer
+    cout << "Nombre: ";
+    getline(cin, colaborador[cant_colaboradores].nombres);
+    cout << "Edad: ";
+    cin >> colaborador[cant_colaboradores].edad;
+    cin.ignore(); // Limpia de nuevo
+    cout << "Teléfono: ";
+    getline(cin, colaborador[cant_colaboradores].telefono);
+    cout << "Código: ";
+    getline(cin, colaborador[cant_colaboradores].codigo);
+    cant_colaboradores++;
+    cout << "* Colaborador agregado correctamente *" << endl;
+}
+
