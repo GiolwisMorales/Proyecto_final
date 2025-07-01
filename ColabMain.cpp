@@ -19,20 +19,16 @@ int main() {
 
         cout << "-------------OPCIONES-----------" << endl;
         cout << "Elija una opcion: " << endl;
-        cout << "2: Agregar colaboradores" << endl;
-		cout << "3: Listar colaboradores" << endl;
+        cout << "2: Agregar colaborador" << endl;
+        cout << "3: Listar colaboradores" << endl;
         cout << "4: Modificar colaborador" << endl;
         cout << "5. Eliminar colaborador"<<endl;
         cin >> opcion;
 
-cin.ignore();
-
-if (opcion == 2){
-	agregarColaborador();
-}
-
-
-    else    if (opcion == 3) {
+        if(opcion == 2){
+        	agregarColaborador();
+		}
+		else if(opcion == 3) {
             listarColaboradores();
         } 
 		else if (opcion == 4) {
@@ -40,7 +36,8 @@ if (opcion == 2){
 		}
 		else if (opcion == 5) {
 			eliminarColaborador();
-		} else {
+		} 
+		else {
             cout << "Opcion no valida." << endl;
         }
     } else {
@@ -48,4 +45,3 @@ if (opcion == 2){
     }
     return 0;
 }
-
