@@ -19,12 +19,20 @@ int main() {
 
         cout << "-------------OPCIONES-----------" << endl;
         cout << "Elija una opcion: " << endl;
-        cout << "3: Listar colaboradores" << endl;
+        cout << "2: Agregar colaboradores" << endl;
+		cout << "3: Listar colaboradores" << endl;
         cout << "4: Modificar colaborador" << endl;
         cout << "5. Eliminar colaborador"<<endl;
         cin >> opcion;
 
-        if (opcion == 3) {
+cin.ignore();
+
+if (opcion == 2){
+	agregarColaborador();
+}
+
+
+    else    if (opcion == 3) {
             listarColaboradores();
         } 
 		else if (opcion == 4) {
