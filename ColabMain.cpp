@@ -30,7 +30,7 @@ int main() {
 		else if (opcion == 4) {
             modificarColaborador();
 		}
-		else if (opcion == 4) {
+		else if (opcion == 5) {
 			eliminarColaborador();
 		} else {
             cout << "Opcion no valida." << endl;
