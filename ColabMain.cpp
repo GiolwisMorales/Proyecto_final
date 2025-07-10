@@ -16,32 +16,42 @@ int main() {
     
     if (hacer == 1) {
         int opcion;
+        string decision;
+        
+		do{
 
         cout << "-------------OPCIONES-----------" << endl;
         cout << "Elija una opcion: " << endl;
-        cout << "2: Agregar colaborador" << endl;
-        cout << "3: Listar colaboradores" << endl;
-        cout << "4: Modificar colaborador" << endl;
-        cout << "5. Eliminar colaborador"<<endl;
+        cout << "1: Agregar colaborador" << endl;
+        cout << "2: Listar colaboradores" << endl;
+        cout << "3: Modificar colaborador" << endl;
+        cout << "4. Eliminar colaborador"<<endl;
         cin >> opcion;
 
-        if(opcion == 2){
+        if(opcion == 1){
         	agregarColaborador();
 		}
-		else if(opcion == 3) {
+		else if(opcion == 2) {
             listarColaboradores();
         } 
-		else if (opcion == 4) {
+		else if (opcion == 3) {
             modificarColaborador();
 		}
-		else if (opcion == 5) {
+		else if (opcion == 4) {
 			eliminarColaborador();
 		} 
 		else {
             cout << "Opcion no valida." << endl;
         }
-    } else {
-        cout << "Opcion principal no valida." << endl;
-    }
+    
+	
+	cout<<"¿desea realizar otra accion? (si o no) "<<endl;
+	cin>>decision; 
+	cout<<endl;
+	   
+    }while(decision=="si");
+    
+    } 
+    
     return 0;
 }
