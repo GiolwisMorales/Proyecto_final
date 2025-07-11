@@ -32,6 +32,8 @@ struct ventasColab{
 };
 
 extern ventasColab venta[][1000];
-extern int cant_ventas;
+extern int cant_ventas[];
+
+void agregarVenta();
 #endif
 

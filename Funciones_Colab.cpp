@@ -12,6 +12,11 @@ int cant_colaboradores = 0;
 // Arreglo de colaboradores
 datosColab colaborador[maximo];
 
+//arreglo de venta por cada colaborador
+ventasColab venta[maximo][1000];
+//variable que registra la cantidad de ventas del colaborador designado
+int cant_ventas[maximo]={0};
+
 // ----------- FUNCION PARA LISTAR COLABORADORES -----------
 void listarColaboradores() {
     if (cant_colaboradores > 0) {
@@ -138,4 +143,33 @@ void agregarColaborador() {
     cout << " Colaborador agregado correctamente.\n";
 }
 
- 
+
+
+void agregarVenta(){
+	
+		int codi;
+        	cout<<"ingrese su codigo de colaborador: "<<endl;
+        	cin>>codi;
+        	cin.ignore();
+        	if(codi>=0 and codi<cant_colaboradores){
+        		int can=cant_ventas[codi];
+        		
+        		cout<<"colaborador "<<colaborador[codi].nombres <<" registrado"<<endl;
+        		cout<<"ingrese el nombre del producto: ";
+        		getline(cin, venta[codi][can].producto);
+        		cout<<"ingrese el precio del producto: ";
+        		cin>>venta[codi][can].precio;
+        		cin.ignore();
+        		cout<<"ingrese la cantidad de cantidad de ventas: ";
+        		cin>>venta[codi][can].cantidad;
+        		cin.ignore();
+        		cout<<"ingrese el ID de venta: ";
+        		cin>>venta[codi][can].IDventa;
+        		cout<<endl;
+        		
+        		cant_ventas[codi]++; //incrementa el contador de ventas de forma individual
+				}else{
+					cout<<"colaborador no encontrado "<<endl;
+				}
+			
+}
