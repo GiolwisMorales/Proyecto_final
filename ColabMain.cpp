@@ -69,6 +69,10 @@ int main() {
         cout << "Elija una opcion: " << endl;
         cin>>opc;
         
+        if(opc==1){
+        	
+         agregarVenta();
+		}
         
         
         
