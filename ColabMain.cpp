@@ -56,13 +56,28 @@ int main() {
     }while(decision=="no" or decision=="NO" or decision=="No");
     
     } else if(hacer ==2 ){
+    	int opc;
+    	string juicio;
     	
+    	do{
+		
     	cout << "-------------OPCIONES-----------" << endl;
         cout << "1: Agregar datos de la venta" << endl;
         cout << "2: Listar las ventas" << endl;
         cout << "3: Eliminar venta" << endl;
         cout << "4. Modificar datos del producto vendido"<<endl;
         cout << "Elija una opcion: " << endl;
+        cin>>opc;
+        
+        
+        
+        
+        cout<<endl;
+	    cout<<"desea regresar a la ventana anterior? (si o no) "<<endl;
+	    getline(cin, juicio);
+	    cout<<endl;
+        }while(juicio=="no" or juicio== "NO" or juicio=="No");
+		
 	}
     
     return 0;

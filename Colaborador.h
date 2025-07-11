@@ -23,5 +23,15 @@ void modificarColaborador();
 void eliminarColaborador();
 void agregarColaborador();
 
+//datos de venta
+struct ventasColab{
+	string producto;
+	int cantidad;
+	float precio;
+	int IDventa;
+};
+
+extern ventasColab venta[][1000];
+extern int cant_ventas;
 #endif
 
