@@ -9,8 +9,9 @@ int main() {
 
     
     cout << "-------------------MENU-------------------" << endl;
-    cout << "Elija una opcion" << endl;
     cout << "[1] GESTION DE COLABORADORES" << endl;
+    
+    cout << "Elija una opcion" << endl;
     cin >> hacer;
 
     
@@ -21,11 +22,11 @@ int main() {
 		do{
 
         cout << "-------------OPCIONES-----------" << endl;
-        cout << "Elija una opcion: " << endl;
         cout << "1: Agregar colaborador" << endl;
         cout << "2: Listar colaboradores" << endl;
         cout << "3: Modificar colaborador" << endl;
         cout << "4. Eliminar colaborador"<<endl;
+        cout << "Elija una opcion: " << endl;
         cin >> opcion;
 
         if(opcion == 1){
@@ -44,12 +45,12 @@ int main() {
             cout << "Opcion no valida." << endl;
         }
     
-	
-	cout<<"¿desea realizar otra accion? (si o no) "<<endl;
-	cin>>decision; 
+	cout<<endl;
+	cout<<"desea regresar a la ventana anterior? (si o no) "<<endl;
+	getline(cin, decision);
 	cout<<endl;
 	   
-    }while(decision=="si");
+    }while(decision=="no" or decision=="NO" or decision=="No");
     
     } 
     
