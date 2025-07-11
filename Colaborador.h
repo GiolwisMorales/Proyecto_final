@@ -8,7 +8,7 @@ struct datosColab{
     string nombres;
     int edad;
     string telefono;
-    string codigo;
+    int codigo;
 };
 
 extern const int maximo;

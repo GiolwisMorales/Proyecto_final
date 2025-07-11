@@ -28,6 +28,7 @@ int main() {
         cout << "4. Eliminar colaborador"<<endl;
         cout << "Elija una opcion: " << endl;
         cin >> opcion;
+        
 
         if(opcion == 1){
         	agregarColaborador();
@@ -45,6 +46,7 @@ int main() {
             cout << "Opcion no valida." << endl;
         }
     
+    cin.ignore();
 	cout<<endl;
 	cout<<"desea regresar a la ventana anterior? (si o no) "<<endl;
 	getline(cin, decision);
