@@ -10,6 +10,7 @@ int main() {
     
     cout << "-------------------MENU-------------------" << endl;
     cout << "[1] GESTION DE COLABORADORES" << endl;
+    cout << "[2] GESTION DE VENTAS" << endl;
     
     cout << "Elija una opcion" << endl;
     cin >> hacer;
@@ -54,7 +55,16 @@ int main() {
 	   
     }while(decision=="no" or decision=="NO" or decision=="No");
     
-    } 
+    } else if(hacer ==2 ){
+    	
+    	cout << "-------------OPCIONES-----------" << endl;
+        cout << "1: Agregar datos de la venta" << endl;
+        cout << "2: Listar las ventas" << endl;
+        cout << "3: Eliminar venta" << endl;
+        cout << "4. Modificar datos del producto vendido"<<endl;
+        cout << "Elija una opcion: " << endl;
+	}
     
     return 0;
+    
 }
