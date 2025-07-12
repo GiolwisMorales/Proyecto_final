@@ -17,6 +17,17 @@ ventasColab venta[maximo][1000];
 //variable que registra la cantidad de ventas del colaborador designado
 int cant_ventas[maximo]={0};
 
+void preAgregarColaborador(){
+	
+    colaborador[0] ={"Josue Fernando Mamani Lima", 18, "930106478", 0};
+    colaborador[1] ={"Juan Carlos Ramirez Torres", 23, "949659123", 1};
+    colaborador[2] ={"Andres Felipe Gutierrez Navarro", 19, "956438548", 2};
+    colaborador[3] ={"Diego Armando Castillo Perez", 20, "960435234", 3};
+    colaborador[4] ={"Sebastian Nicolas Paredes Leon", 18, "954650786", 4};
+    //contador aumenta a 5
+    cant_colaboradores = 5;
+
+}
 // ----------- FUNCION PARA LISTAR COLABORADORES -----------
 void listarColaboradores() {
     if (cant_colaboradores > 0) {
@@ -83,6 +94,8 @@ cout<<"lista de colaboradores \n";
 for(int i=0; i<cant_colaboradores; i++){
 	cout<<"codigo: "<<colaborador[i].codigo<<endl;
 	cout<<"nombre: "<<colaborador[i].nombres<<endl;
+	
+	cout<<endl;
 }
 cout<<endl;
 
@@ -93,13 +106,12 @@ if(cant_colaboradores>0){
 	cout<<"ingrese el codigo de la persona "<<endl;
 	cin>>cod;
 	//disminuir el codigo
-	cod--;
 	cout<<"eliminaste al colaborador "<<colaborador[cod].nombres<<endl;
 	if(cod>=0 and cod<cant_colaboradores){
 		
 		//bucle para correr los datos del arreglo
 		for(int j=cod; j<cant_colaboradores-1; j++){
-			colaborador[j]=colaborador[j+1];
+			colaborador[j] =colaborador[j+1];
 		}
 		
 		cant_colaboradores--;

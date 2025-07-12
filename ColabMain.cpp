@@ -5,9 +5,10 @@
 using namespace std;
 
 int main() {
-    int hacer;
-
+   //agregamos los 5 primeros colaboradores
+    preAgregarColaborador();
     
+    int hacer;
     cout << "-------------------MENU-------------------" << endl;
     cout << "[1] GESTION DE COLABORADORES" << endl;
     cout << "[2] GESTION DE VENTAS" << endl;
@@ -87,3 +88,4 @@ int main() {
     return 0;
     
 }
+
