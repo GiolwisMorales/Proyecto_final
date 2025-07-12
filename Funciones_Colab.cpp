@@ -94,7 +94,6 @@ cout<<"lista de colaboradores \n";
 for(int i=0; i<cant_colaboradores; i++){
 	cout<<"codigo: "<<colaborador[i].codigo<<endl;
 	cout<<"nombre: "<<colaborador[i].nombres<<endl;
-	
 	cout<<endl;
 }
 cout<<endl;
@@ -105,7 +104,7 @@ if(cant_colaboradores>0){
 	
 	cout<<"ingrese el codigo de la persona "<<endl;
 	cin>>cod;
-	//disminuir el codigo
+	
 	cout<<"eliminaste al colaborador "<<colaborador[cod].nombres<<endl;
 	if(cod>=0 and cod<cant_colaboradores){
 		
@@ -163,25 +162,35 @@ void agregarVenta(){
         	cout<<"ingrese su codigo de colaborador: "<<endl;
         	cin>>codi;
         	cin.ignore();
-        	if(codi>=0 and codi<cant_colaboradores){
-        		int can=cant_ventas[codi];
+        	int pos = buscarColaboradorPorCodigo(codi);
+        	if(pos != -1){
+        		int can=cant_ventas[pos];
         		
-        		cout<<"colaborador "<<colaborador[codi].nombres <<" registrado"<<endl;
+        		cout<<"colaborador "<<colaborador[pos].nombres <<" registrado"<<endl;
         		cout<<"ingrese el nombre del producto: ";
-        		getline(cin, venta[codi][can].producto);
+        		getline(cin, venta[pos][can].producto);
         		cout<<"ingrese el precio del producto: ";
-        		cin>>venta[codi][can].precio;
+        		cin>>venta[pos][can].precio;
         		cin.ignore();
         		cout<<"ingrese la cantidad de cantidad de ventas: ";
-        		cin>>venta[codi][can].cantidad;
+        		cin>>venta[pos][can].cantidad;
         		cin.ignore();
         		cout<<"ingrese el ID de venta: ";
-        		cin>>venta[codi][can].IDventa;
+        		cin>>venta[pos][can].IDventa;
         		cout<<endl;
         		
-        		cant_ventas[codi]++; //incrementa el contador de ventas de forma individual
+        		cant_ventas[pos]++; //incrementa el contador de ventas de forma individual
 				}else{
 					cout<<"colaborador no encontrado "<<endl;
 				}
 			
+}
+
+int buscarColaboradorPorCodigo(int codigo) {
+    for (int i = 0; i < cant_colaboradores; i++) {
+        if (colaborador[i].codigo == codigo) {
+            return i;
+        }
+    }
+    return -1; // no encontrado
 }
