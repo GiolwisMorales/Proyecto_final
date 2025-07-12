@@ -15,7 +15,7 @@ int main() {
     cout << "-------------------MENU-------------------" << endl;
     cout << "[1] GESTION DE COLABORADORES" << endl;
     cout << "[2] GESTION DE VENTAS" << endl;
-    cout << "[3] GESTION DE RENDIMIENTO DE COLABORADOR" <<endl;
+    cout << "[3] GESTION DE INFORMACION" <<endl;
     cout << "[4] SALIR DEL PROGRAMA" <<endl;
     
     do{
@@ -100,10 +100,10 @@ int main() {
 		do{
 		
     	cout << "-------------OPCIONES-----------" << endl;
-        cout << "1:  " << endl;
-        cout << "2:  " << endl;
-        cout << "3:  " << endl;
-        cout << "4.  "<<endl;
+        cout << "1:  rendimiento de colaborador" << endl;
+        cout << "2:  ranking de rendimineto" << endl;
+        cout << "3:  empleado del mes" << endl;
+        cout << "4.  producto mas vendido por colaborador"<<endl;
         cout << "Elija una opcion: " << endl;
         cin>>op;
         
@@ -114,6 +114,7 @@ int main() {
 	    cout<<"desea regresar a la ventana anterior? (si o no) "<<endl;
 	    getline(cin, veredicto);
 	    cout<<endl;
+	    
         }while(veredicto=="no" or veredicto== "NO" or veredicto=="No");
         
 	}else if(hacer==4){
