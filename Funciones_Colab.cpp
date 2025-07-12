@@ -194,3 +194,42 @@ int buscarColaboradorPorCodigo(int codigo) {
     }
     return -1; // no encontrado
 }
+
+
+
+
+
+//menu 3
+//en esta funcion lo que se quiere es que se sume todos las ventas realizada osea la cantidad * el precio y sumarlo pero eso de acuerdo al colaborador asignado
+void rendimientoColaborador(){
+	int codig;
+	
+	cout<<"ingrese el codigo del colaborador "<<endl;
+	cin>>codig;
+	cin.ignore();
+	
+	int per= buscarColaboradorPorCodigo(codig); 
+	
+	if(per != -1){
+		int total=0;
+		int rendimiento=0;
+		int aux;
+		
+		cout<<"el rendimiento del colaborador: "<<colaborador[per].nombres<<" es: "<<endl;
+		
+		for(int i=0; i<cant_ventas[per]; i++){
+			aux=venta[per][i].cantidad*venta[per][i].precio;
+			total=total+ aux;
+		}
+		
+		rendimiento = total / 1000;
+        int sobrante = total % 1000;
+	 
+		cout<<rendimiento<<endl;
+		cout<<"aumulacion de ventas: "<<sobrante<<" soles"<<endl;
+		
+	}else{
+		cout<<"colaborador no encontrado!"<<endl;	
+	}
+	
+}

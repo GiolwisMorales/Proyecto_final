@@ -107,18 +107,22 @@ int main() {
         cout << "Elija una opcion: " << endl;
         cin>>op;
         
+        if(op==1){
+        rendimientoColaborador();	
+		}
         
          
-        
         cout<<endl;
 	    cout<<"desea regresar a la ventana anterior? (si o no) "<<endl;
 	    getline(cin, veredicto);
 	    cout<<endl;
 	    
         }while(veredicto=="no" or veredicto== "NO" or veredicto=="No");
-        
+     
+	    
 	}else if(hacer==4){
 		cout<<"PROGRAMA FINALIZADO! "<<endl;
+	
 		
 	}else{
 		cout<<"error"<<endl;
