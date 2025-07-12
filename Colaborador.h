@@ -17,6 +17,8 @@ extern datosColab colaborador[];
 //la cantidad de personas que hay en la empresa
 extern int  cant_colaboradores;
 
+
+void preAgregarColaborador();
 //agregamos la funciones a utilizar
 void listarColaboradores();
 void modificarColaborador();
@@ -33,6 +35,8 @@ struct ventasColab{
 
 extern ventasColab venta[][1000];
 extern int cant_ventas[];
+
+int buscarColaboradorPorCodigo(int codi);
 
 void agregarVenta();
 #endif
