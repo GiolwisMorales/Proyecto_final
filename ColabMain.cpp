@@ -9,14 +9,23 @@ int main() {
     preAgregarColaborador();
     
     int hacer;
+    string dictamen;
+    do{
+	
     cout << "-------------------MENU-------------------" << endl;
     cout << "[1] GESTION DE COLABORADORES" << endl;
     cout << "[2] GESTION DE VENTAS" << endl;
+    cout << "[3] GESTION DE RENDIMIENTO DE COLABORADOR" <<endl;
+    cout << "[4] SALIR DEL PROGRAMA" <<endl;
     
+    do{
     cout << "Elija una opcion" << endl;
     cin >> hacer;
-
-    
+	if(hacer>4 or hacer <1){
+		cout<<"opcion invalida! VUELVA A ELEGIR"<<endl;
+	}
+	}while(hacer>4 or hacer <1);
+	
     if (hacer == 1) {
         int opcion;
         string decision;
@@ -83,8 +92,40 @@ int main() {
 	    cout<<endl;
         }while(juicio=="no" or juicio== "NO" or juicio=="No");
 		
+	} else if(hacer ==3){
+		
+		int op;
+		string veredicto;
+		
+		do{
+		
+    	cout << "-------------OPCIONES-----------" << endl;
+        cout << "1:  " << endl;
+        cout << "2:  " << endl;
+        cout << "3:  " << endl;
+        cout << "4.  "<<endl;
+        cout << "Elija una opcion: " << endl;
+        cin>>op;
+        
+        
+         
+        
+        cout<<endl;
+	    cout<<"desea regresar a la ventana anterior? (si o no) "<<endl;
+	    getline(cin, veredicto);
+	    cout<<endl;
+        }while(veredicto=="no" or veredicto== "NO" or veredicto=="No");
+        
+	}else if(hacer==4){
+		cout<<"PROGRAMA FINALIZADO! "<<endl;
+		
+	}else{
+		cout<<"error"<<endl;
 	}
     
+   
+}while(hacer<4 and hacer >0);
+
     return 0;
     
 }
