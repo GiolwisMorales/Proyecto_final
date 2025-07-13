@@ -72,8 +72,13 @@ int main() {
 				cin>>opc;
         		if(opc==1){
         			agregarVenta();
+        			
 				} else if(opc==2){
 					listarVentas();
+					
+				}else if(opc==3){
+					eliminarventa();
+					
 				}
         
 				cout<<endl;

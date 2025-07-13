@@ -40,7 +40,7 @@ int buscarColaboradorPorCodigo(int codi);
 
 void agregarVenta();
 void listarVentas();
-
+void eliminarventa();
 
 
 //menu 3
