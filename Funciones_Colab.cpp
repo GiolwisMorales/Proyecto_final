@@ -258,7 +258,7 @@ void rendimientoColaborador(){
     }
 
     if (encontrado) {
-        auto &v = venta[colMax][ventaMax];
+        ventasColab&v = venta[colMax][ventaMax];
         cout << "Producto mÃ¡s caro registrado:\n";
         cout << "Colaborador: " << colaborador[colMax].nombres << "\n";
         cout << "Producto: "     << v.producto << "\n";
@@ -271,12 +271,67 @@ void rendimientoColaborador(){
 }
 
 void empleadoDelMes() {
-    cout << "FunciÃ³n empleadoDelMes en desarrollo...\n";
-    // Para determinar al colaborador con mejor rendimiento
+    if (cant_colaboradores == 0) {
+        cout << "No hay colaboradores registrados.\n";
+        return;
+    }
+
+    int mejorColab = -1;
+    float mayorMonto = 0;
+
+    for (int i = 0; i < cant_colaboradores; ++i) {
+        float total = 0;
+        for (int j = 0; j < cant_ventas[i]; ++j) {
+            total += venta[i][j].precio * venta[i][j].cantidad;
+        }
+
+        if (total > mayorMonto || mejorColab == -1) {
+            mejorColab = i;
+            mayorMonto = total;
+        }
+    }
+
+    if (mejorColab != -1) {
+        cout << "?? Empleado del mes ??\n";
+        cout << "Nombre: " << colaborador[mejorColab].nombres << "\n";
+        cout << "Código: " << colaborador[mejorColab].codigo << "\n";
+        cout << "Total vendido: S/ " << mayorMonto << "\n";
+    } else {
+        cout << "No hay ventas registradas aún.\n";
+    }
 }
 
 void productoMasVendidoPorColaborador() {
-    cout << "FunciÃ³n productoMasVendidoPorColaborador en desarrollo...\n";
-    //Para mostrar el producto con mayor cantidad vendida por colaborador
+    if (cant_colaboradores == 0) {
+        cout << "No hay colaboradores registrados.\n";
+        return;
+    }
+
+    int codigo;
+    cout << "Ingrese el código del colaborador: ";
+    cin >> codigo;
+
+    int pos = buscarColaboradorPorCodigo(codigo);
+    if (pos == -1) {
+        cout << "Colaborador no encontrado.\n";
+        return;
+    }
+
+    if (cant_ventas[pos] == 0) {
+        cout << "Este colaborador no tiene ventas registradas.\n";
+        return;
+    }
+
+    int mayorIdx = 0;
+    for (int i = 1; i < cant_ventas[pos]; ++i) {
+        if (venta[pos][i].cantidad > venta[pos][mayorIdx].cantidad) {
+            mayorIdx = i;
+        }
+    }
+    
+    cout << "Producto más vendido por " << colaborador[pos].nombres << ":\n";
+    cout << "Producto: " << venta[pos][mayorIdx].producto << "\n";
+    cout << "Cantidad: " << venta[pos][mayorIdx].cantidad << "\n";
+    cout << "ID Venta: " << venta[pos][mayorIdx].IDventa << "\n";
 }
 
