@@ -41,7 +41,7 @@ int buscarColaboradorPorCodigo(int codi);
 void agregarVenta();
 void listarVentas();
 void eliminarventa();
-
+void modificarVenta();
 
 //menu 3
 void rendimientoColaborador();

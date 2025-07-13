@@ -79,8 +79,10 @@ int main() {
 				}else if(opc==3){
 					eliminarventa();
 					
+				}else if(opc==4){
+					modificarVenta();
 				}
-        
+				
 				cout<<endl;
 				cout<<"¿Desea regresar a la ventana anterior? (si o no) "<<endl;
 				getline(cin, juicio);
