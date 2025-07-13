@@ -223,7 +223,56 @@ void listarVentas() {
 	}
 }
 
+void eliminarventa(){
+	
+	int codigo;
+	cout<<"ingrese el codigo del colaborador: ";
+	cin>>codigo;
+	
+	int p = buscarColaboradorPorCodigo(codigo);
+	
+	if(p==-1){
+		cout<<"colaborador no encotrado "<<endl;
+		return;
+	}
+	
+	if(cant_ventas[p]==0){
+		cout<<"no hay ventas registradas por el colaborador "<<endl;
+		return;
+	}
+	
+	cout<<"ventas realizadas por el colaborador "<<colaborador[p].nombres<<" :"<<endl;
+	 for (int i = 0; i < cant_ventas[p]; ++i) {
+        cout << "ID de venta: "    << venta[p][i].IDventa
+             << " | Producto: "    << venta[p][i].producto
+             << " | Precio: S/ "   << venta[p][i].precio
+             << " | Cantidad: "    << venta[p][i].cantidad << "\n";
+    }
+     
+     int idv;
+     cout<<"ingrese el IDventa del producto a eliminar: ";
+     cin>> idv;
+     
+     
+    int idx = -1;
+    for (int i = 0; i < cant_ventas[p]; ++i) {
+        if (venta[p][i].IDventa == idv) {
+            idx = i;
+            break;
+        }
+    }
+    if (idx == -1) {
+        cout << "No se encontró una venta con ese ID.\n";
+        return;
+    }
 
+    // Desplazar ventas y decrementar contador
+    for (int j = idx; j < cant_ventas[p] - 1; ++j) {
+        venta[p][j] = venta[p][j + 1];
+    }
+    cant_ventas[p]--;
+    cout << "Venta con ID " << idv << " eliminada correctamente.\n";
+} 
 
 //menu 3
 //en esta funcion lo que se quiere es que se sume todos las ventas realizada osea la cantidad * el precio y sumarlo pero eso de acuerdo al colaborador asignado
@@ -274,7 +323,9 @@ void rendimientoColaborador(){
     for (int i = 0; i < cant_colaboradores; i++) {
         for (int j = 0; j < cant_ventas[i]; j++) {
             float precioActual = venta[i][j].precio;
-            if (!encontrado || precioActual > precioMax) {
+            
+            if (!encontrado or precioActual > precioMax) {
+            	
                 encontrado = true;
                 precioMax = precioActual;
                 colMax = i;
