@@ -28,14 +28,14 @@ int main() {
 	
 		if (hacer == 1) {											//Eleccion 1
         	int opcion;
-        	string decision;
         	
 			do{
         		cout << "-------------OPCIONES-----------" << endl;	//Opciones de GESTION DE COLABORADORES
         		cout << "1: Agregar colaborador" << endl;
 				cout << "2: Listar colaboradores" << endl;
 				cout << "3: Modificar colaborador" << endl;
-				cout << "4. Eliminar colaborador"<<endl;
+				cout << "4: Eliminar colaborador"<<endl;
+				cout << "5: Salir de la pagina"<<endl;
 				cout << "Elija una opción: " << endl;
 				cin >> opcion;
         	
@@ -47,29 +47,28 @@ int main() {
 					modificarColaborador();
 				} else if (opcion == 4) {
 					eliminarColaborador();
-				} else {
+				} else if(opcion==5){
+					cout<<"saliste de la pagina"<<endl;
+				}else {
 					cout << "Opción no válida." << endl;
-				}
-			
-				cin.ignore();
-				cout<<endl;
-				cout<<"¿Desea regresar a la ventana anterior? (si o no) "<<endl;
-				cin.ignore();
-				getline(cin, decision);
-				cout<<endl;  
-			}while(decision=="no" or decision=="NO" or decision=="No");
+			   }
+			   cout<<endl;
+			   
+			}while(opcion!=5);
+			cout<<endl;
 			
 		} else if(hacer ==2 ){										//Eleccion 2
     		int opc;
-    		string juicio;
-    	
+    		 
 			do{
     			cout << "-------------OPCIONES-----------" << endl;	//Opciones de GESTION DE VENTAS
 				cout << "1: Agregar datos de la venta" << endl;
 				cout << "2: Listar las ventas" << endl;
 				cout << "3: Eliminar venta" << endl;
-				cout << "4. Modificar datos del producto vendido"<<endl;
+				cout << "4: Modificar datos del producto vendido"<<endl;
+				cout << "5: Salir de la pagiga"<<endl;
 				cout << "Elija una opción: " << endl;
+				
 				cin>>opc;
         		if(opc==1){
         			agregarVenta();
@@ -82,26 +81,25 @@ int main() {
 					
 				}else if(opc==4){
 					modificarVenta();
+				}else if(opc==5){
+					cout<<"saliste de la pagina"<<endl;
 				}else{
 					cout << "Opción inválida.\n";
 				}
-				cout<<endl;
-				cin.ignore();
-				cout<<"¿Desea regresar a la ventana anterior? (si o no) "<<endl;
-				getline(cin, juicio);
-				cout<<endl;
-			}while(juicio=="no" or juicio== "NO" or juicio=="No");
-		
+				 
+			}while(opc!=5);
+		cout<<endl;
 		
 		} else if(hacer ==3){										//Eleccion 3
 			int op;
-			string veredicto;
+		 
 			do{
 				cout << "-------------OPCIONES-----------" << endl;	//Opciones de GESTION DE INFORMACION
 				cout << "1:  Rendimiento de colaborador" << endl;
 				cout << "2:  Producto más caro registrado" << endl;
 				cout << "3:  Empleado del mes" << endl;
-				cout << "4.  Producto mas vendido por colaborador"<<endl;
+				cout << "4:  Producto mas vendido por colaborador"<<endl;
+				cout << "5:  Salir de la pagina"<<endl;
 				cout << "Elija una opción: " << endl;
 				cin>>op;
 				
@@ -113,21 +111,20 @@ int main() {
 					empleadoDelMes();
 				}else if (op == 4) {
 					productoMasVendidoPorColaborador();
+				}else if(op==5){
+					cout<<"saliste de la pagina"<<endl;
 				}else {
 					cout << "Opción no válida." << endl;
 				}
-
-				cout << "\n¿Desea regresar a la ventana anterior? (si o no): ";
-				getline(cin, veredicto);
-				cout << endl;
+ 
 					
-			}while(veredicto=="no" or veredicto== "NO" or veredicto=="No");
-
-
+			}while(op!=5);
+            cout<<endl;
+            
 		}else if(hacer==4){											//Eleccion 4 SALIR DEL PROGRAMA
 			cout<<"PROGRAMA FINALIZADO! "<<endl;
 			
-			
+			cout<<endl;
 		}else{                                                      //opcion caso contrario
 			cout<<"Error"<<endl;
 		}
