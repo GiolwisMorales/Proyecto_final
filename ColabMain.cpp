@@ -107,15 +107,26 @@ int main() {
         cout << "Elija una opcion: " << endl;
         cin>>op;
         
-        if(op==1){
-        rendimientoColaborador();	
-		}
-        
-         
-        cout<<endl;
-	    cout<<"desea regresar a la ventana anterior? (si o no) "<<endl;
-	    getline(cin, veredicto);
-	    cout<<endl;
+  if (op == 1) {
+        rendimientoColaborador();
+    }
+    else if (op == 2) {
+        rankingDeRendimiento();
+    }
+    else if (op == 3) {
+        empleadoDelMes();
+    }
+    else if (op == 4) {
+        productoMasVendidoPorColaborador();
+    }
+    else {
+        cout << "Opción no válida." << endl;
+    }
+
+    cout << "\n¿Desea regresar a la ventana anterior? (si o no): ";
+    getline(cin, veredicto);
+    cout << endl;
+
 	    
         }while(veredicto=="no" or veredicto== "NO" or veredicto=="No");
      

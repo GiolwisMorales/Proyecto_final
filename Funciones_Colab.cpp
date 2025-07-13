@@ -233,3 +233,19 @@ void rendimientoColaborador(){
 	}
 	
 }
+
+void rankingDeRendimiento() {
+    cout << "Función rankingDeRendimiento en desarrollo...\n";
+    //Para colaboradores según ventas totales y mostrar el ranking
+}
+
+void empleadoDelMes() {
+    cout << "Función empleadoDelMes en desarrollo...\n";
+    // Para determinar al colaborador con mejor rendimiento
+}
+
+void productoMasVendidoPorColaborador() {
+    cout << "Función productoMasVendidoPorColaborador en desarrollo...\n";
+    //Para mostrar el producto con mayor cantidad vendida por colaborador
+}
+
