@@ -44,7 +44,7 @@ void agregarVenta();
 
 //menu 3
 void rendimientoColaborador();
-void rankingDeRendimiento();
+void productoMasCaroRegistrado();
 void empleadoDelMes();
 void productoMasVendidoPorColaborador();
 #endif

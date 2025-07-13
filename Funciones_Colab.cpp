@@ -128,7 +128,7 @@ if(cant_colaboradores>0){
 
 void agregarColaborador() {
     if (cant_colaboradores >= maximo) {
-        cout << "No se pueden agregar mÃ¡s colaboradores (lÃ­mite alcanzado)." << endl;
+        cout << "No se pueden agregar mC!s colaboradores (lC-mite alcanzado)." << endl;
         return;
     }
 
@@ -234,18 +234,49 @@ void rendimientoColaborador(){
 	
 }
 
-void rankingDeRendimiento() {
-    cout << "Función rankingDeRendimiento en desarrollo...\n";
-    //Para colaboradores según ventas totales y mostrar el ranking
+ void productoMasCaroRegistrado() {
+    if (cant_colaboradores == 0) {
+        cout << "No hay colaboradores registrados.\n";
+        return;
+    }
+
+    bool encontrado = false;
+    float precioMax = 0.0;
+    int colMax = -1, ventaMax = -1;
+
+    // Recorre todos los colaboradores y sus ventas
+    for (int i = 0; i < cant_colaboradores; i++) {
+        for (int j = 0; j < cant_ventas[i]; j++) {
+            float precioActual = venta[i][j].precio;
+            if (!encontrado || precioActual > precioMax) {
+                encontrado = true;
+                precioMax = precioActual;
+                colMax = i;
+                ventaMax = j;
+            }
+        }
+    }
+
+    if (encontrado) {
+        auto &v = venta[colMax][ventaMax];
+        cout << "Producto mas caro registrado:\n";
+        cout << "Colaborador: " << colaborador[colMax].nombres << "\n";
+        cout << "Producto: "     << v.producto << "\n";
+        cout << "Precio: S/ "    << precioMax << "\n";
+        cout << "Cantidad vendida: " << v.cantidad << "\n";
+        cout << "ID de venta: "  << v.IDventa << "\n";
+    } else {
+        cout << "Aun no se ha registrado ninguna venta.\n";
+    }
 }
 
 void empleadoDelMes() {
-    cout << "Función empleadoDelMes en desarrollo...\n";
+    cout << "Funcisn empleadoDelMes en desarrollo...\n";
     // Para determinar al colaborador con mejor rendimiento
 }
 
 void productoMasVendidoPorColaborador() {
-    cout << "Función productoMasVendidoPorColaborador en desarrollo...\n";
+    cout << "Funcisn productoMasVendidoPorColaborador en desarrollo...\n";
     //Para mostrar el producto con mayor cantidad vendida por colaborador
 }
 

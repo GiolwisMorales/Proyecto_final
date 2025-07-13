@@ -101,7 +101,7 @@ int main() {
 		
     	cout << "-------------OPCIONES-----------" << endl;
         cout << "1:  rendimiento de colaborador" << endl;
-        cout << "2:  ranking de rendimineto" << endl;
+        cout << "2:  producto mas caro registrado" << endl;
         cout << "3:  empleado del mes" << endl;
         cout << "4.  producto mas vendido por colaborador"<<endl;
         cout << "Elija una opcion: " << endl;
@@ -111,19 +111,22 @@ int main() {
         rendimientoColaborador();
     }
     else if (op == 2) {
-        rankingDeRendimiento();
+    	
+        productoMasCaroRegistrado();
     }
     else if (op == 3) {
+    	
         empleadoDelMes();
     }
     else if (op == 4) {
+    	
         productoMasVendidoPorColaborador();
     }
     else {
-        cout << "Opción no válida." << endl;
+        cout << "OpciÃ³n no vÃ¡lida." << endl;
     }
 
-    cout << "\n¿Desea regresar a la ventana anterior? (si o no): ";
+    cout << "\nÂ¿Desea regresar a la ventana anterior? (si o no): ";
     getline(cin, veredicto);
     cout << endl;
 
