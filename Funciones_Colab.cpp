@@ -195,7 +195,33 @@ int buscarColaboradorPorCodigo(int codigo) {
     return -1; // no encontrado
 }
 
-
+void listarVentas() {
+	cout << "\n--- LISTADO DE VENTAS POR COLABORADOR ---\n";
+	int codigo;
+	cout << "Ingrese el c贸digo del colaborador: ";
+	cin >> codigo;
+	cin.ignore();
+	int pos = buscarColaboradorPorCodigo(codigo);
+	if (pos == -1) {
+		cout << "No se encontr贸 ning煤n colaborador con ese c贸digo.\n";
+		return;
+	}
+	if (cant_ventas[pos] == 0) {
+		cout << "\nColaborador: " << colaborador[pos].nombres
+		<< " (C贸digo: " << colaborador[pos].codigo << ")\n";
+		cout << "No tiene ventas registradas.\n";
+		return;
+	}
+	cout << "\nColaborador: " << colaborador[pos].nombres
+		<< " (C贸digo: " << colaborador[pos].codigo << ")\n";
+	for (int j = 0; j < cant_ventas[pos]; j++) {
+		cout << "  ID Venta: "     << venta[pos][j].IDventa << endl;
+		cout << "  Producto: "     << venta[pos][j].producto << endl;
+		cout << "  Precio: S/ "    << venta[pos][j].precio << endl;
+		cout << "  Cantidad: "     << venta[pos][j].cantidad << endl;
+		cout << "---------------------------\n";
+	}
+}
 
 
 
@@ -294,10 +320,10 @@ void empleadoDelMes() {
     if (mejorColab != -1) {
         cout << "?? Empleado del mes ??\n";
         cout << "Nombre: " << colaborador[mejorColab].nombres << "\n";
-        cout << "C骴igo: " << colaborador[mejorColab].codigo << "\n";
+        cout << "C锟絛igo: " << colaborador[mejorColab].codigo << "\n";
         cout << "Total vendido: S/ " << mayorMonto << "\n";
     } else {
-        cout << "No hay ventas registradas a鷑.\n";
+        cout << "No hay ventas registradas a锟絥.\n";
     }
 }
 
@@ -308,7 +334,7 @@ void productoMasVendidoPorColaborador() {
     }
 
     int codigo;
-    cout << "Ingrese el c骴igo del colaborador: ";
+    cout << "Ingrese el c锟絛igo del colaborador: ";
     cin >> codigo;
 
     int pos = buscarColaboradorPorCodigo(codigo);
@@ -329,7 +355,7 @@ void productoMasVendidoPorColaborador() {
         }
     }
     
-    cout << "Producto m醩 vendido por " << colaborador[pos].nombres << ":\n";
+    cout << "Producto m锟絪 vendido por " << colaborador[pos].nombres << ":\n";
     cout << "Producto: " << venta[pos][mayorIdx].producto << "\n";
     cout << "Cantidad: " << venta[pos][mayorIdx].cantidad << "\n";
     cout << "ID Venta: " << venta[pos][mayorIdx].IDventa << "\n";

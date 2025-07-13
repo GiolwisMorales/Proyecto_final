@@ -39,6 +39,7 @@ extern int cant_ventas[];
 int buscarColaboradorPorCodigo(int codi);
 
 void agregarVenta();
+void listarVentas();
 
 
 
