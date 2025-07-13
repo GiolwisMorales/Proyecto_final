@@ -318,9 +318,9 @@ void empleadoDelMes() {
     }
 
     if (mejorColab != -1) {
-        cout << "?? Empleado del mes ??\n";
+        cout << "Empleado del mes \n";
         cout << "Nombre: " << colaborador[mejorColab].nombres << "\n";
-        cout << "C�digo: " << colaborador[mejorColab].codigo << "\n";
+        cout << "Código: " << colaborador[mejorColab].codigo << "\n";
         cout << "Total vendido: S/ " << mayorMonto << "\n";
     } else {
         cout << "No hay ventas registradas a�n.\n";
@@ -334,7 +334,7 @@ void productoMasVendidoPorColaborador() {
     }
 
     int codigo;
-    cout << "Ingrese el c�digo del colaborador: ";
+    cout << "Ingrese el código del colaborador: ";
     cin >> codigo;
 
     int pos = buscarColaboradorPorCodigo(codigo);
@@ -355,7 +355,7 @@ void productoMasVendidoPorColaborador() {
         }
     }
     
-    cout << "Producto m�s vendido por " << colaborador[pos].nombres << ":\n";
+    cout << "Producto más vendido por " << colaborador[pos].nombres << ":\n";
     cout << "Producto: " << venta[pos][mayorIdx].producto << "\n";
     cout << "Cantidad: " << venta[pos][mayorIdx].cantidad << "\n";
     cout << "ID Venta: " << venta[pos][mayorIdx].IDventa << "\n";
