@@ -272,7 +272,56 @@ void eliminarventa(){
     }
     cant_ventas[p]--;
     cout << "Venta con ID " << idv << " eliminada correctamente.\n";
-} 
+}
+
+void modificarVenta() {
+	int codigo;
+	cout << "\nIngrese el código del colaborador: ";
+	cin >> codigo;
+	int p = buscarColaboradorPorCodigo(codigo);
+	if (p == -1) {
+		cout << "Colaborador no encontrado.\n";
+		return;
+	}
+	if (cant_ventas[p] == 0) {
+		cout << "No hay ventas registradas para el colaborador "
+			<< colaborador[p].nombres << ".\n";
+		return;
+	}
+
+	cout << "Ventas registradas por " << colaborador[p].nombres << ":\n";
+	for (int i = 0; i < cant_ventas[p]; ++i) {
+		cout << "ID Venta: " << venta[p][i].IDventa
+			<< " | Producto: " << venta[p][i].producto
+			<< " | Precio: S/ " << venta[p][i].precio
+			<< " | Cantidad: " << venta[p][i].cantidad << "\n";
+    }
+	int idv;
+	cout << "\nIngrese el ID de la venta que desea modificar: ";
+    cin >> idv;
+	int idx = -1;
+	for (int i = 0; i < cant_ventas[p]; ++i) {
+		if (venta[p][i].IDventa == idv) {
+			idx = i;
+			break;
+		}
+	}
+
+	if (idx == -1) {
+		cout << "No se encontró una venta con ese ID.\n";
+		return;
+	}
+	cout << "\nIngrese los nuevos datos para la venta:\n";
+	cout << "Nuevo nombre de producto: ";
+	cin.ignore();
+	getline(cin, venta[p][idx].producto);
+	cout << "Nuevo precio: ";
+	cin >> venta[p][idx].precio;
+	cout << "Nueva cantidad: ";
+	cin >> venta[p][idx].cantidad;
+
+	cout << "Venta modificada exitosamente.\n";
+}
 
 //menu 3
 //en esta funcion lo que se quiere es que se sume todos las ventas realizada osea la cantidad * el precio y sumarlo pero eso de acuerdo al colaborador asignado
