@@ -37,8 +37,8 @@ void listarColaboradores() {
             cout << "Colaborador " << i + 1 << endl;
             cout << "Nombres: " << colaborador[i].nombres << endl;
             cout << "Edad: " << colaborador[i].edad << endl;
-            cout << "Codigo: " << colaborador[i].codigo << endl;
-            cout << "Telefono: " << colaborador[i].telefono << endl;
+            cout << "Código: " << colaborador[i].codigo << endl;
+            cout << "Teléfono: " << colaborador[i].telefono << endl;
             cout << endl;
         }
     } else {
@@ -53,7 +53,7 @@ void modificarColaborador() {
         return;
     }
     int codigoBuscado;
-    cout << "Ingrese el codigo del colaborador que desea modificar: ";
+    cout << "Ingrese el código del colaborador que desea modificar: ";
     cin>> codigoBuscado;
     cin.ignore();
     for (int i = 0; i < cant_colaboradores; i++) {
@@ -61,15 +61,15 @@ void modificarColaborador() {
             cout << "\nColaborador encontrado:" << endl;
             cout << "Nombre actual: " << colaborador[i].nombres << endl;
             cout << "Edad actual: " << colaborador[i].edad << endl;
-            cout << "Telefono actual: " << colaborador[i].telefono << endl;
+            cout << "Teléfono actual: " << colaborador[i].telefono << endl;
             string nuevoNombre, nuevoTelefono;
             int nuevaEdad;
-            cout << "\nNuevo nombre (dejar vacio para mantener): ";
+            cout << "\nNuevo nombre (dejar vacío para mantener): ";
             getline(cin, nuevoNombre);
             if (!nuevoNombre.empty()) {
                 colaborador[i].nombres = nuevoNombre;
             }
-            cout << "Nuevo telefono (dejar vacio para mantener): ";
+            cout << "Nuevo teléfono (dejar vacío para mantener): ";
             getline(cin, nuevoTelefono);
             if (!nuevoTelefono.empty()) {
                 colaborador[i].telefono = nuevoTelefono;
@@ -84,16 +84,16 @@ void modificarColaborador() {
             return;
         }
     }
-    cout << "\n No se encontro un colaborador con ese codigo." << endl;
+    cout << "\n No se encontró un colaborador con ese código." << endl;
 }
 
 // ----------- FUNCION PARA ELIMINAR COLABORADOR -----------
 void eliminarColaborador() {
 //mostramos el codigo y nombre de los colaboradores
-cout<<"lista de colaboradores \n";
+cout<<"Lista de colaboradores \n";
 for(int i=0; i<cant_colaboradores; i++){
-	cout<<"codigo: "<<colaborador[i].codigo<<endl;
-	cout<<"nombre: "<<colaborador[i].nombres<<endl;
+	cout<<"Código: "<<colaborador[i].codigo<<endl;
+	cout<<"Nombre: "<<colaborador[i].nombres<<endl;
 	cout<<endl;
 }
 cout<<endl;
@@ -102,10 +102,10 @@ int cod;
 //condicion para no hacer nada si hay 0 colaboradores
 if(cant_colaboradores>0){
 	
-	cout<<"ingrese el codigo de la persona "<<endl;
+	cout<<"Ingrese el código de la persona "<<endl;
 	cin>>cod;
 	
-	cout<<"eliminaste al colaborador "<<colaborador[cod].nombres<<endl;
+	cout<<"Eliminaste al colaborador "<<colaborador[cod].nombres<<endl;
 	if(cod>=0 and cod<cant_colaboradores){
 		
 		//bucle para correr los datos del arreglo
@@ -118,7 +118,7 @@ if(cant_colaboradores>0){
 	
 	
 }else{
-	cout<<"no hay colaboradores "<<endl;
+	cout<<"No hay colaboradores "<<endl;
 }
 
 }
@@ -128,7 +128,7 @@ if(cant_colaboradores>0){
 
 void agregarColaborador() {
     if (cant_colaboradores >= maximo) {
-        cout << "No se pueden agregar mC!s colaboradores (lC-mite alcanzado)." << endl;
+        cout << "No se pueden agregar más colaboradores (límite alcanzado)." << endl;
         return;
     }
 
@@ -142,10 +142,10 @@ void agregarColaborador() {
     cin >> nuevo.edad;
     cin.ignore();
 
-    cout << "Ingrese telefono: ";
+    cout << "Ingrese teléfono: ";
     getline(cin, nuevo.telefono);
 
-    cout << "Ingrese codigo: ";
+    cout << "Ingrese código: ";
     cin>> nuevo.codigo;
     cin.ignore();
     colaborador[cant_colaboradores] = nuevo;
@@ -159,29 +159,29 @@ void agregarColaborador() {
 void agregarVenta(){
 	
 		int codi;
-        	cout<<"ingrese su codigo de colaborador: "<<endl;
+        	cout<<"Ingrese su código de colaborador: "<<endl;
         	cin>>codi;
         	cin.ignore();
         	int pos = buscarColaboradorPorCodigo(codi);
         	if(pos != -1){
         		int can=cant_ventas[pos];
         		
-        		cout<<"colaborador "<<colaborador[pos].nombres <<" registrado"<<endl;
-        		cout<<"ingrese el nombre del producto: ";
+        		cout<<"Colaborador "<<colaborador[pos].nombres <<" registrado"<<endl;
+        		cout<<"Ingrese el nombre del producto: ";
         		getline(cin, venta[pos][can].producto);
-        		cout<<"ingrese el precio del producto: ";
+        		cout<<"Ingrese el precio del producto: ";
         		cin>>venta[pos][can].precio;
         		cin.ignore();
-        		cout<<"ingrese la cantidad de cantidad de ventas: ";
+        		cout<<"Ingrese la cantidad de ventas: ";
         		cin>>venta[pos][can].cantidad;
         		cin.ignore();
-        		cout<<"ingrese el ID de venta: ";
+        		cout<<"Ingrese el ID de venta: ";
         		cin>>venta[pos][can].IDventa;
         		cout<<endl;
         		
         		cant_ventas[pos]++; //incrementa el contador de ventas de forma individual
 				}else{
-					cout<<"colaborador no encontrado "<<endl;
+					cout<<"Colaborador no encontrado "<<endl;
 				}
 			
 }
@@ -204,7 +204,7 @@ int buscarColaboradorPorCodigo(int codigo) {
 void rendimientoColaborador(){
 	int codig;
 	
-	cout<<"ingrese el codigo del colaborador "<<endl;
+	cout<<"Ingrese el código del colaborador "<<endl;
 	cin>>codig;
 	cin.ignore();
 	
@@ -215,7 +215,7 @@ void rendimientoColaborador(){
 		int rendimiento=0;
 		int aux;
 		
-		cout<<"el rendimiento del colaborador: "<<colaborador[per].nombres<<" es: "<<endl;
+		cout<<"El rendimiento del colaborador: "<<colaborador[per].nombres<<" es: "<<endl;
 		
 		for(int i=0; i<cant_ventas[per]; i++){
 			aux=venta[per][i].cantidad*venta[per][i].precio;
@@ -226,10 +226,10 @@ void rendimientoColaborador(){
         int sobrante = total % 1000;
 	 
 		cout<<rendimiento<<endl;
-		cout<<"aumulacion de ventas: "<<sobrante<<" soles"<<endl;
+		cout<<"Acumulacion de ventas: "<<sobrante<<" soles"<<endl;
 		
 	}else{
-		cout<<"colaborador no encontrado!"<<endl;	
+		cout<<"Colaborador no encontrado!"<<endl;	
 	}
 	
 }
@@ -259,24 +259,24 @@ void rendimientoColaborador(){
 
     if (encontrado) {
         auto &v = venta[colMax][ventaMax];
-        cout << "Producto mas caro registrado:\n";
+        cout << "Producto más caro registrado:\n";
         cout << "Colaborador: " << colaborador[colMax].nombres << "\n";
         cout << "Producto: "     << v.producto << "\n";
         cout << "Precio: S/ "    << precioMax << "\n";
         cout << "Cantidad vendida: " << v.cantidad << "\n";
         cout << "ID de venta: "  << v.IDventa << "\n";
     } else {
-        cout << "Aun no se ha registrado ninguna venta.\n";
+        cout << "Aún no se ha registrado ninguna venta.\n";
     }
 }
 
 void empleadoDelMes() {
-    cout << "Funcisn empleadoDelMes en desarrollo...\n";
+    cout << "Función empleadoDelMes en desarrollo...\n";
     // Para determinar al colaborador con mejor rendimiento
 }
 
 void productoMasVendidoPorColaborador() {
-    cout << "Funcisn productoMasVendidoPorColaborador en desarrollo...\n";
+    cout << "Función productoMasVendidoPorColaborador en desarrollo...\n";
     //Para mostrar el producto con mayor cantidad vendida por colaborador
 }
 
