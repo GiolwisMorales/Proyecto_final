@@ -81,9 +81,11 @@ int main() {
 					
 				}else if(opc==4){
 					modificarVenta();
+				}else{
+					cout << "Opción inválida.\n";
 				}
-				
 				cout<<endl;
+				cin.ignore();
 				cout<<"¿Desea regresar a la ventana anterior? (si o no) "<<endl;
 				getline(cin, juicio);
 				cout<<endl;
