@@ -53,6 +53,7 @@ int main() {
 				cin.ignore();
 				cout<<endl;
 				cout<<"¿Desea regresar a la ventana anterior? (si o no) "<<endl;
+				cin.ignore();
 				getline(cin, decision);
 				cout<<endl;  
 			}while(decision=="no" or decision=="NO" or decision=="No");
