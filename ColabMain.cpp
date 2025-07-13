@@ -25,6 +25,7 @@ int main() {
 			}
 		}while(hacer>4 or hacer <1);
 	
+	
 		if (hacer == 1) {											//Eleccion 1
         	int opcion;
         	string decision;
@@ -91,6 +92,7 @@ int main() {
 				cout<<endl;
 			}while(juicio=="no" or juicio== "NO" or juicio=="No");
 		
+		
 		} else if(hacer ==3){										//Eleccion 3
 			int op;
 			string veredicto;
@@ -121,9 +123,12 @@ int main() {
 					
 			}while(veredicto=="no" or veredicto== "NO" or veredicto=="No");
 
+
 		}else if(hacer==4){											//Eleccion 4 SALIR DEL PROGRAMA
 			cout<<"PROGRAMA FINALIZADO! "<<endl;
-		}else{
+			
+			
+		}else{                                                      //opcion caso contrario
 			cout<<"Error"<<endl;
 		}
 

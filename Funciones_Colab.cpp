@@ -17,6 +17,7 @@ ventasColab venta[maximo][1000];
 //variable que registra la cantidad de ventas del colaborador designado
 int cant_ventas[maximo]={0};
 
+//FUNCIONA PARA AGREGAR DE ANTEMANO CINCO COLABORADORES
 void preAgregarColaborador(){
 	
     colaborador[0] ={"Josue Fernando Mamani Lima", 18, "930106478", 0};
@@ -28,6 +29,8 @@ void preAgregarColaborador(){
     cant_colaboradores = 5;
 
 }
+
+
 // ----------- FUNCION PARA LISTAR COLABORADORES -----------
 void listarColaboradores() {
     if (cant_colaboradores > 0) {
@@ -45,6 +48,7 @@ void listarColaboradores() {
         cout << "No hay colaboradores registrados." << endl;
     }
 }
+
 
 // ----------- FUNCIONN PARA MODIFICAR COLABORADOR -----------
 void modificarColaborador() {
@@ -87,6 +91,7 @@ void modificarColaborador() {
     cout << "\n No se encontró un colaborador con ese código." << endl;
 }
 
+
 // ----------- FUNCION PARA ELIMINAR COLABORADOR -----------
 void eliminarColaborador() {
 //mostramos el codigo y nombre de los colaboradores
@@ -123,8 +128,8 @@ if(cant_colaboradores>0){
 
 }
 
-// ----------- FUNCION PARA AGREGAR COLABORADOR -----------
 
+// ----------- FUNCION PARA AGREGAR COLABORADOR -----------
 
 void agregarColaborador() {
     if (cant_colaboradores >= maximo) {
@@ -155,7 +160,7 @@ void agregarColaborador() {
 }
 
 
-
+//FUNCION PARA AGREGAR LAS VENTAS DE UN COLABORADOR DESIGNADO
 void agregarVenta(){
 	
 		int codi;
@@ -186,6 +191,8 @@ void agregarVenta(){
 			
 }
 
+
+//FUNCION PARA BUSCAR A UN COLABORADOR POR EL CODIGO(IMPORTANTE PARA EL MENU 2 Y 3)
 int buscarColaboradorPorCodigo(int codigo) {
     for (int i = 0; i < cant_colaboradores; i++) {
         if (colaborador[i].codigo == codigo) {
@@ -195,6 +202,8 @@ int buscarColaboradorPorCodigo(int codigo) {
     return -1; // no encontrado
 }
 
+
+//FUNCION PARA LISTAR LAS VENTAS DE UN COLABORADOR DESIGNADO
 void listarVentas() {
 	cout << "\n--- LISTADO DE VENTAS POR COLABORADOR ---\n";
 	int codigo;
@@ -222,6 +231,8 @@ void listarVentas() {
 	}
 }
 
+
+//FUNCION PARA ELIMINAR LA VENTA DE UN COLABORADOR DESIGNADO
 void eliminarventa(){
 	
 	int codigo;
@@ -273,6 +284,8 @@ void eliminarventa(){
     cout << "Venta con ID " << idv << " eliminada correctamente.\n";
 }
 
+
+//FUNCION PARA MODIFICAR LOS DATOS DE VENTA DE UN COLABORADOR
 void modificarVenta() {
 	int codigo;
 	cout << "\nIngrese el código del colaborador: ";
@@ -322,6 +335,8 @@ void modificarVenta() {
 	cout << "Venta modificada exitosamente.\n";
 }
 
+
+
 //menu 3
 //en esta funcion lo que se quiere es que se sume todos las ventas realizada osea la cantidad * el precio y sumarlo pero eso de acuerdo al colaborador asignado
 void rendimientoColaborador(){
@@ -357,6 +372,8 @@ void rendimientoColaborador(){
 	
 }
 
+
+//FUNCION PARA MOSTRAR EL PRODUCTO MAS CARO REGISTRADO POR EL PROGRAMA
  void productoMasCaroRegistrado() {
     if (cant_colaboradores == 0) {
         cout << "No hay colaboradores registrados.\n";
@@ -395,6 +412,8 @@ void rendimientoColaborador(){
     }
 }
 
+
+//FUNCION PARA MOSTRAR AL EMPLEADO CON MAYOR RENDIMIENTO EN TODO EL PROGRAMA
 void empleadoDelMes() {
     if (cant_colaboradores == 0) {
         cout << "No hay colaboradores registrados.\n";
@@ -426,6 +445,8 @@ void empleadoDelMes() {
     }
 }
 
+
+//FUNCION PARA MOSTRAR EL PRODUCTO MAS CARO VENDIDO POR UN COLABORADOR DESIGNADO
 void productoMasVendidoPorColaborador() {
     if (cant_colaboradores == 0) {
         cout << "No hay colaboradores registrados.\n";
@@ -460,3 +481,4 @@ void productoMasVendidoPorColaborador() {
     cout << "ID Venta: " << venta[pos][mayorIdx].IDventa << "\n";
 }
 
+//FIN DE LAS FUNCIONES
