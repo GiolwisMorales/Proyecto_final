@@ -177,7 +177,7 @@ void agregarVenta(){
         		cin.ignore();
         		cout<<"Ingrese el ID de venta: ";
         		cin>>venta[pos][can].IDventa;
-        		cout<<endl;
+        		cout<<"La venta se registró correctamente."<<endl;
         		
         		cant_ventas[pos]++; //incrementa el contador de ventas de forma individual
 				}else{
@@ -200,7 +200,6 @@ void listarVentas() {
 	int codigo;
 	cout << "Ingrese el código del colaborador: ";
 	cin >> codigo;
-	cin.ignore();
 	int pos = buscarColaboradorPorCodigo(codigo);
 	if (pos == -1) {
 		cout << "No se encontró ningún colaborador con ese código.\n";
