@@ -3,7 +3,7 @@
 
 #include<string>
 using namespace std;
-//datos del colaborador
+//estructura datos del colaborador
 struct datosColab{
     string nombres;
     int edad;
@@ -19,13 +19,13 @@ extern int  cant_colaboradores;
 
 
 void preAgregarColaborador();
-//agregamos la funciones a utilizar
+//funciones del menu 3
 void listarColaboradores();
 void modificarColaborador();
 void eliminarColaborador();
 void agregarColaborador();
 
-//datos de venta
+//estructura datos de venta
 struct ventasColab{
 	string producto;
 	int cantidad;
@@ -33,17 +33,19 @@ struct ventasColab{
 	int IDventa;
 };
 
+//arreglo para registrar venta por colaborador
 extern ventasColab venta[][1000];
 extern int cant_ventas[];
 
 int buscarColaboradorPorCodigo(int codi);
 
+//funciones del menu 2
 void agregarVenta();
 void listarVentas();
 void eliminarventa();
 void modificarVenta();
 
-//menu 3
+//funciones del menu 3
 void rendimientoColaborador();
 void productoMasCaroRegistrado();
 void empleadoDelMes();
