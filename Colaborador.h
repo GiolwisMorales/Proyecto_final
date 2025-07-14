@@ -19,7 +19,7 @@ extern int  cant_colaboradores;
 
 
 void preAgregarColaborador();
-//funciones del menu 3
+//funciones del menu 1
 void listarColaboradores();
 void modificarColaborador();
 void eliminarColaborador();
