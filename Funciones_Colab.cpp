@@ -20,11 +20,11 @@ int cant_ventas[maximo]={0};
 //FUNCIONA PARA AGREGAR DE ANTEMANO CINCO COLABORADORES
 void preAgregarColaborador(){
 	
-    colaborador[0] ={"Josue Fernando Mamani Lima", 18, "930106478", 0};
-    colaborador[1] ={"Juan Carlos Ramirez Torres", 23, "949659123", 1};
-    colaborador[2] ={"Andres Felipe Gutierrez Navarro", 19, "956438548", 2};
-    colaborador[3] ={"Diego Armando Castillo Perez", 20, "960435234", 3};
-    colaborador[4] ={"Sebastian Nicolas Paredes Leon", 18, "954650786", 4};
+    colaborador[0] ={"Josue Fernando Mamani Lima", 18, "930106478", 1};
+    colaborador[1] ={"Juan Carlos Ramirez Torres", 23, "949659123", 2};
+    colaborador[2] ={"Andres Felipe Gutierrez Navarro", 19, "956438548", 3};
+    colaborador[3] ={"Diego Armando Castillo Perez", 20, "960435234", 4};
+    colaborador[4] ={"Sebastian Nicolas Paredes Leon", 18, "954650786", 5};
     //contador aumenta a 5
     cant_colaboradores = 5;
 
@@ -110,18 +110,32 @@ if(cant_colaboradores>0){
 	cout<<"Ingrese el código de la persona "<<endl;
 	cin>>cod;
 	
-	cout<<"Eliminaste al colaborador "<<colaborador[cod].nombres<<endl;
-	if(cod>=0 and cod<cant_colaboradores){
+	int pos=buscarColaboradorPorCodigo(cod);
+	
+	if (pos == -1){ 
+	cout<<"No existe\n"; 
+	return; 
+	}
+
+	cout<<"Eliminaste al colaborador "<<colaborador[pos].nombres<<endl;
+	if(pos>=0 and pos<cant_colaboradores){
 		
 		//bucle para correr los datos del arreglo
-		for(int j=cod; j<cant_colaboradores-1; j++){
+		for(int j=pos; j<cant_colaboradores-1; j++){
 			colaborador[j] =colaborador[j+1];
-		}
+			
+			 // mover ventas
+            for(int k = 0; k < cant_ventas[j+1]; ++k){
+            venta[j][k] = venta[j+1][k];
+            }
+            cant_ventas[j] = cant_ventas[j+1];
+        }
 		
 		cant_colaboradores--;
+		cant_ventas[cant_colaboradores] = 0;
 	}
 	
-	
+    
 }else{
 	cout<<"No hay colaboradores "<<endl;
 }
