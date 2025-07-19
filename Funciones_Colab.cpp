@@ -16,6 +16,8 @@ datosColab colaborador[maximo];
 ventasColab venta[maximo][1000];
 //variable que registra la cantidad de ventas del colaborador designado
 int cant_ventas[maximo]={0};
+//variable para designar el idventa de cada colaborador
+int contadorIDporColaborador[maximo] = {0};
 
 //FUNCIONA PARA AGREGAR DE ANTEMANO CINCO COLABORADORES
 void preAgregarColaborador(){
@@ -185,7 +187,12 @@ void agregarVenta(){
         	if(pos != -1){
         		int can=cant_ventas[pos];
         		
+        		venta[pos][can].IDventa = generarIDVentaPorColaborador(pos);
+        		 
         		cout<<"Colaborador "<<colaborador[pos].nombres <<" registrado"<<endl;
+        		
+        		cout<<"ID de venta asignado: ";
+        		cout<< venta[pos][can].IDventa << endl;
         		cout<<"Ingrese el nombre del producto: ";
         		getline(cin, venta[pos][can].producto);
         		cout<<"Ingrese el precio del producto: ";
@@ -194,11 +201,11 @@ void agregarVenta(){
         		cout<<"Ingrese la cantidad de ventas: ";
         		cin>>venta[pos][can].cantidad;
         		cin.ignore();
-        		cout<<"Ingrese el ID de venta: ";
-        		cin>>venta[pos][can].IDventa;
+        	 
         		cout<<"La venta se registró correctamente."<<endl;
         		
         		cant_ventas[pos]++; //incrementa el contador de ventas de forma individual
+        		
 				}else{
 					cout<<"Colaborador no encontrado "<<endl;
 				}
@@ -206,7 +213,7 @@ void agregarVenta(){
 }
 
 
-//FUNCION PARA BUSCAR A UN COLABORADOR POR EL CODIGO(IMPORTANTE PARA EL MENU 2 Y 3)
+//FUNCION PARA BUSCAR A UN COLABORADOR POR EL CODIGO(IMPORTANTE PARA EL MENU 1, 2 Y 3)
 int buscarColaboradorPorCodigo(int codigo) {
     for (int i = 0; i < cant_colaboradores; i++) {
         if (colaborador[i].codigo == codigo) {
@@ -216,6 +223,9 @@ int buscarColaboradorPorCodigo(int codigo) {
     return -1; // no encontrado
 }
 
+ int generarIDVentaPorColaborador(int posColab) {
+    return contadorIDporColaborador[posColab]++;
+}
 
 //FUNCION PARA LISTAR LAS VENTAS DE UN COLABORADOR DESIGNADO
 void listarVentas() {
