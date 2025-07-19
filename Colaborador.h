@@ -34,11 +34,12 @@ struct ventasColab{
 };
 
 //arreglo para registrar venta por colaborador
+extern int idven;
 extern ventasColab venta[][1000];
 extern int cant_ventas[];
 
 int buscarColaboradorPorCodigo(int codi);
-
+int generarIDVentaPorColaborador(int posColab);
 //funciones del menu 2
 void agregarVenta();
 void listarVentas();

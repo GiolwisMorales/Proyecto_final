@@ -49,16 +49,22 @@ int main() {
         	
 				if(opcion == 1){
 					agregarColaborador();
+					cout<<endl;
 				} else if(opcion == 2) {
 					listarColaboradores();
+					cout<<endl;
 				} else if (opcion == 3) {
 					modificarColaborador();
+					cout<<endl;
 				} else if (opcion == 4) {
 					eliminarColaborador();
+					cout<<endl;
 				} else if(opcion==5){
 					cout<<"Saliste de la página"<<endl;
+					cout<<endl;
 				}else {
 					cout << "Opción no válida." << endl;
+					cout<<endl;
 			   }
 			   cout<<endl;
 			   
@@ -81,17 +87,19 @@ int main() {
 				cin>>opc;
         		if(opc==1){
         			agregarVenta();
-        			
+        			cout<<endl;
 				} else if(opc==2){
 					listarVentas();
-					
+					cout<<endl;
 				}else if(opc==3){
 					eliminarventa();
-					
+					cout<<endl;
 				}else if(opc==4){
 					modificarVenta();
+					cout<<endl;
 				}else if(opc==5){
 					cout<<"Saliste de la pagina"<<endl;
+					cout<<endl;
 				}else{
 					cout << "Opción inválida.\n";
 				}
@@ -115,14 +123,19 @@ int main() {
 				
 				if (op == 1) {
 					rendimientoColaborador();
+					cout<<endl;
 				}else if (op == 2) {
 					productoMasCaroRegistrado();
+					cout<<endl;
 				}else if (op == 3) {
 					empleadoDelMes();
+					cout<<endl;
 				}else if (op == 4) {
 					productoMasVendidoPorColaborador();
+					cout<<endl;
 				}else if(op==5){
 					cout<<"Saliste de la pagina"<<endl;
+					cout<<endl;
 				}else {
 					cout << "Opción no válida." << endl;
 				}

@@ -16,6 +16,8 @@ datosColab colaborador[maximo];
 ventasColab venta[maximo][1000];
 //variable que registra la cantidad de ventas del colaborador designado
 int cant_ventas[maximo]={0};
+//variable para designar el idventa de cada colaborador
+int contadorIDporColaborador[maximo] = {0};
 
 //FUNCIONA PARA AGREGAR DE ANTEMANO CINCO COLABORADORES
 void preAgregarColaborador(){
@@ -47,6 +49,7 @@ void listarColaboradores() {
     } else {
         cout << "No hay colaboradores registrados." << endl;
     }
+    cout<<endl;
 }
 
 
@@ -87,8 +90,10 @@ void modificarColaborador() {
             cout << "\n Colaborador modificado exitosamente." << endl;
             return;
         }
+         cout<<endl;
     }
     cout << "\n No se encontró un colaborador con ese código." << endl;
+     cout<<endl;
 }
 
 
@@ -139,7 +144,7 @@ if(cant_colaboradores>0){
 }else{
 	cout<<"No hay colaboradores "<<endl;
 }
-
+cout<<endl;
 }
 
 
@@ -171,6 +176,7 @@ void agregarColaborador() {
     cant_colaboradores++;
 
     cout << " Colaborador agregado correctamente.\n";
+    cout<<endl;
 }
 
 
@@ -185,7 +191,12 @@ void agregarVenta(){
         	if(pos != -1){
         		int can=cant_ventas[pos];
         		
+        		venta[pos][can].IDventa = generarIDVentaPorColaborador(pos);
+        		 
         		cout<<"Colaborador "<<colaborador[pos].nombres <<" registrado"<<endl;
+        		
+        		cout<<"ID de venta asignado: ";
+        		cout<< venta[pos][can].IDventa << endl;
         		cout<<"Ingrese el nombre del producto: ";
         		getline(cin, venta[pos][can].producto);
         		cout<<"Ingrese el precio del producto: ";
@@ -194,19 +205,19 @@ void agregarVenta(){
         		cout<<"Ingrese la cantidad de ventas: ";
         		cin>>venta[pos][can].cantidad;
         		cin.ignore();
-        		cout<<"Ingrese el ID de venta: ";
-        		cin>>venta[pos][can].IDventa;
+        	 
         		cout<<"La venta se registró correctamente."<<endl;
         		
         		cant_ventas[pos]++; //incrementa el contador de ventas de forma individual
+        		
 				}else{
 					cout<<"Colaborador no encontrado "<<endl;
 				}
-			
+		cout<<endl;	
 }
 
 
-//FUNCION PARA BUSCAR A UN COLABORADOR POR EL CODIGO(IMPORTANTE PARA EL MENU 2 Y 3)
+//FUNCION PARA BUSCAR A UN COLABORADOR POR EL CODIGO(IMPORTANTE PARA EL MENU 1, 2 Y 3)
 int buscarColaboradorPorCodigo(int codigo) {
     for (int i = 0; i < cant_colaboradores; i++) {
         if (colaborador[i].codigo == codigo) {
@@ -216,6 +227,10 @@ int buscarColaboradorPorCodigo(int codigo) {
     return -1; // no encontrado
 }
 
+//FUNCIONA PARA DESIGNAR UN ID A CADA VENTA DE UN COLABORADOR DE FORMA INDEPENDIENTE
+ int generarIDVentaPorColaborador(int posColab) {
+    return contadorIDporColaborador[posColab]++;
+}
 
 //FUNCION PARA LISTAR LAS VENTAS DE UN COLABORADOR DESIGNADO
 void listarVentas() {
@@ -243,6 +258,7 @@ void listarVentas() {
 		cout << "  Cantidad: "     << venta[pos][j].cantidad << endl;
 		cout << "---------------------------\n";
 	}
+	cout<<endl;
 }
 
 
@@ -296,6 +312,8 @@ void eliminarventa(){
     }
     cant_ventas[p]--;
     cout << "Venta con ID " << idv << " eliminada correctamente.\n";
+    
+    cout<<endl;
 }
 
 
@@ -347,6 +365,7 @@ void modificarVenta() {
 	cin >> venta[p][idx].cantidad;
 
 	cout << "Venta modificada exitosamente.\n";
+	cout<<endl;
 }
 
 
@@ -383,7 +402,7 @@ void rendimientoColaborador(){
 	}else{
 		cout<<"Colaborador no encontrado!"<<endl;	
 	}
-	
+	cout<<endl;
 }
 
 
@@ -424,6 +443,8 @@ void rendimientoColaborador(){
     } else {
         cout << "Aún no se ha registrado ninguna venta.\n";
     }
+    
+    cout<<endl;
 }
 
 
@@ -457,6 +478,7 @@ void empleadoDelMes() {
     } else {
         cout << "No hay ventas registradas a�n.\n";
     }
+    cout<<endl;
 }
 
 
@@ -493,6 +515,7 @@ void productoMasVendidoPorColaborador() {
     cout << "Producto: " << venta[pos][mayorIdx].producto << "\n";
     cout << "Cantidad: " << venta[pos][mayorIdx].cantidad << "\n";
     cout << "ID Venta: " << venta[pos][mayorIdx].IDventa << "\n";
+    cout<<endl;
 }
 
 //FIN DE LAS FUNCIONES
