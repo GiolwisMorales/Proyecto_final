@@ -49,6 +49,7 @@ void listarColaboradores() {
     } else {
         cout << "No hay colaboradores registrados." << endl;
     }
+    cout<<endl;
 }
 
 
@@ -89,8 +90,10 @@ void modificarColaborador() {
             cout << "\n Colaborador modificado exitosamente." << endl;
             return;
         }
+         cout<<endl;
     }
     cout << "\n No se encontró un colaborador con ese código." << endl;
+     cout<<endl;
 }
 
 
@@ -141,7 +144,7 @@ if(cant_colaboradores>0){
 }else{
 	cout<<"No hay colaboradores "<<endl;
 }
-
+cout<<endl;
 }
 
 
@@ -173,6 +176,7 @@ void agregarColaborador() {
     cant_colaboradores++;
 
     cout << " Colaborador agregado correctamente.\n";
+    cout<<endl;
 }
 
 
@@ -209,7 +213,7 @@ void agregarVenta(){
 				}else{
 					cout<<"Colaborador no encontrado "<<endl;
 				}
-			
+		cout<<endl;	
 }
 
 
@@ -223,6 +227,7 @@ int buscarColaboradorPorCodigo(int codigo) {
     return -1; // no encontrado
 }
 
+//FUNCIONA PARA DESIGNAR UN ID A CADA VENTA DE UN COLABORADOR DE FORMA INDEPENDIENTE
  int generarIDVentaPorColaborador(int posColab) {
     return contadorIDporColaborador[posColab]++;
 }
@@ -253,6 +258,7 @@ void listarVentas() {
 		cout << "  Cantidad: "     << venta[pos][j].cantidad << endl;
 		cout << "---------------------------\n";
 	}
+	cout<<endl;
 }
 
 
@@ -306,6 +312,8 @@ void eliminarventa(){
     }
     cant_ventas[p]--;
     cout << "Venta con ID " << idv << " eliminada correctamente.\n";
+    
+    cout<<endl;
 }
 
 
@@ -357,6 +365,7 @@ void modificarVenta() {
 	cin >> venta[p][idx].cantidad;
 
 	cout << "Venta modificada exitosamente.\n";
+	cout<<endl;
 }
 
 
@@ -393,7 +402,7 @@ void rendimientoColaborador(){
 	}else{
 		cout<<"Colaborador no encontrado!"<<endl;	
 	}
-	
+	cout<<endl;
 }
 
 
@@ -434,6 +443,8 @@ void rendimientoColaborador(){
     } else {
         cout << "Aún no se ha registrado ninguna venta.\n";
     }
+    
+    cout<<endl;
 }
 
 
@@ -467,6 +478,7 @@ void empleadoDelMes() {
     } else {
         cout << "No hay ventas registradas a�n.\n";
     }
+    cout<<endl;
 }
 
 
@@ -503,6 +515,7 @@ void productoMasVendidoPorColaborador() {
     cout << "Producto: " << venta[pos][mayorIdx].producto << "\n";
     cout << "Cantidad: " << venta[pos][mayorIdx].cantidad << "\n";
     cout << "ID Venta: " << venta[pos][mayorIdx].IDventa << "\n";
+    cout<<endl;
 }
 
 //FIN DE LAS FUNCIONES
