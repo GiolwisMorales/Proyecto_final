@@ -190,7 +190,7 @@ int main() {
 			cout<<"Error"<<endl;
 		}
 
-	}while(hacer<4 and hacer >0);		//se repite siempre que se elija una opcion correcta o hasta decir salir
+	}while(hacer<5 and hacer >0);		//se repite siempre que se elija una opcion correcta o hasta decir salir
 
     return 0;
     
