@@ -4,8 +4,8 @@
 CPP      = g++.exe
 CC       = gcc.exe
 WINDRES  = windres.exe
-OBJ      = ColabMain.o Funciones_Colab.o gestion_de_productos_predefinidos.o
-LINKOBJ  = ColabMain.o Funciones_Colab.o gestion_de_productos_predefinidos.o
+OBJ      = ColabMain.o Funciones_Colab.o
+LINKOBJ  = ColabMain.o Funciones_Colab.o
 LIBS     = -L"D:/Dev-Cpp/TDM-GCC-64/lib" -L"D:/Dev-Cpp/TDM-GCC-64/x86_64-w64-mingw32/lib" -static-libgcc
 INCS     = -I"D:/Dev-Cpp/TDM-GCC-64/include" -I"D:/Dev-Cpp/TDM-GCC-64/x86_64-w64-mingw32/include" -I"D:/Dev-Cpp/TDM-GCC-64/lib/gcc/x86_64-w64-mingw32/9.2.0/include"
 CXXINCS  = -I"D:/Dev-Cpp/TDM-GCC-64/include" -I"D:/Dev-Cpp/TDM-GCC-64/x86_64-w64-mingw32/include" -I"D:/Dev-Cpp/TDM-GCC-64/lib/gcc/x86_64-w64-mingw32/9.2.0/include" -I"D:/Dev-Cpp/TDM-GCC-64/lib/gcc/x86_64-w64-mingw32/9.2.0/include/c++"
@@ -29,6 +29,3 @@ ColabMain.o: ColabMain.cpp
 
 Funciones_Colab.o: Funciones_Colab.cpp
 	$(CPP) -c Funciones_Colab.cpp -o Funciones_Colab.o $(CXXFLAGS)
-
-gestion_de_productos_predefinidos.o: gestion_de_productos_predefinidos.cpp
-	$(CPP) -c gestion_de_productos_predefinidos.cpp -o gestion_de_productos_predefinidos.o $(CXXFLAGS)

@@ -7,6 +7,8 @@ using namespace std;
 int main() {
    //agregamos los 5 primeros colaboradores
     preAgregarColaborador();
+    //agregamos los 5 primeros nombres de productos
+    preRecargarNameProduct();
     
     SetConsoleOutputCP(CP_UTF8);
     HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
@@ -22,7 +24,9 @@ int main() {
     	SetConsoleTextAttribute(hConsole, 11); // Azul claro
   	 	cout << "[3] GESTIÓN DE INFORMACIÓN" <<endl;
   	 	SetConsoleTextAttribute(hConsole, 12); // Rojo claro
-		cout << "[4] SALIR DEL PROGRAMA" <<endl;
+  	 	cout << "[4] GESTION DE PRODUCTOS PREDEFINIDOS"<<endl;
+  	 	
+		cout << "[5] SALIR DEL PROGRAMA" <<endl;
 		SetConsoleTextAttribute(hConsole, 7); // Blanco
     	do{															//Elección
     		cout << "Elija una opción:" << endl;
@@ -144,7 +148,39 @@ int main() {
 			}while(op!=5);			//se repite siempre que no se elija Salir de la página
             cout<<endl;
             
-		}else if(hacer==4){											//Eleccion 4 SALIR DEL PROGRAMA
+		}else if(hacer==4){
+			
+			int selec;
+			
+			do{
+				cout << "-------------OPCIONES-----------" << endl;	//Opciones de GESTION DE INFORMACION
+				cout << "1:  agregar nombre del producto" << endl;
+				cout << "2:  listar nombres de los productos" << endl;
+				cout << "3:  eliminar nombres de productos" << endl;
+				cout << "4:  Salir de la página"<<endl;
+				cout << "Elija una opción: " << endl;
+				cin>>selec;
+				
+				if(selec==1){
+				void agregarNameProduct();
+				cout<<endl;	
+				}else if(selec==2){
+				mostrarProductos();
+				cout<<endl;
+				}else if(selec==3){
+				void eliminarNameProduct();
+				cout<<endl;
+				}else if(selec==4){
+					cout<<"saliste de la pagina"<<endl;
+					cout<<endl;
+				}else{
+					cout << "Opción no valida." <<endl;
+				}
+				
+			}while(selec!= 4);
+			cout<<endl;
+			
+		}else if(hacer==5){											//Eleccion 4 SALIR DEL PROGRAMA
 			SetConsoleTextAttribute(hConsole, 12); // Rojo claro
 			cout<<"PROGRAMA FINALIZADO! "<<endl;
 			SetConsoleTextAttribute(hConsole, 7); // Blanco

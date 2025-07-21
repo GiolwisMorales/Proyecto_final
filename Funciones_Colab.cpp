@@ -518,4 +518,73 @@ void productoMasVendidoPorColaborador() {
     cout<<endl;
 }
 
+using namespace std;
+
+string nameproduct[50];
+int cant_product=0;
+
+void preRecargarNameProduct(){
+	
+    nameproduct[0] = "Chevrolet Onix Premier";
+    nameproduct[1] = "Ferrari Roma V8";
+    nameproduct[2] = "Toyota Corolla Cross";
+    nameproduct[3] = "Audi Q3 Sportback";
+    nameproduct[4] = "Mercedes Benz E 300";
+
+	
+	cant_product=5;
+}
+
+void agregarNameProduct(){
+    if (cant_product >= 50) {
+        cout << "Límite de productos alcanzado.\n";
+        return;
+    }
+    cin.ignore(); 
+    
+    cout<<"ingrese el el nombre y modelo del carro"<<endl;
+    getline(cin, nameproduct[cant_product]);
+    
+    cant_product++;
+}
+
+void eliminarNameProduct(){
+	
+     if (cant_product == 0) {
+        cout << "No hay productos para eliminar.\n";
+        return;
+    }
+
+    string nombre;
+    cin.ignore(); // Limpiar el búfer por si hay restos de input
+    cout << "Ingrese el nombre y modelo exacto del producto a eliminar: ";
+    getline(cin, nombre);
+
+    bool encontrado = false;
+
+    for (int i = 0; i < cant_product; i++) {
+        if (nameproduct[i] == nombre) {
+            // Mover todos los elementos hacia atrás para sobreescribir el eliminado
+            for (int j = i; j < cant_product - 1; j++) {
+                nameproduct[j] = nameproduct[j + 1];
+            }
+            cant_product--; // Reducir el contador
+            encontrado = true;
+            cout << "Producto eliminado correctamente.\n";
+            break;
+        }
+    }
+
+    if (!encontrado) {
+        cout << "Producto no encontrado.\n";
+    }
+}
+
+
+ void mostrarProductos(){
+    cout << "\nLista de productos:\n";
+    for (int i = 0; i < cant_product; i++) {
+        cout << i + 1 << ". " << nameproduct[i] << endl;
+    }
+}
 //FIN DE LAS FUNCIONES

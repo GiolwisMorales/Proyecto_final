@@ -3,6 +3,10 @@
 
 #include<string>
 using namespace std;
+//variables para los nombres de venta 
+extern string nameproduct[];
+extern int cant_product;
+
 //estructura datos del colaborador
 struct datosColab{
     string nombres;
@@ -52,14 +56,10 @@ void productoMasCaroRegistrado();
 void empleadoDelMes();
 void productoMasVendidoPorColaborador();
 
-//para la gestion de productos predefinidos
-struct nameproduct{
-	
-	string marca;
-	string modelo;
-	int indice;
-	
-};
-extern int cant_product;
+//funciones para el menu 4
+void preRecargarNameProduct();
+void agregarNameProduct();
+void eliminarNameProduct();
+void mostrarProductos();
+ 
 #endif
-
