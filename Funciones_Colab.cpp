@@ -194,11 +194,28 @@ void agregarVenta(){
         		venta[pos][can].IDventa = generarIDVentaPorColaborador(pos);
         		 
         		cout<<"Colaborador "<<colaborador[pos].nombres <<" registrado"<<endl;
-        		
+        		//ingresamos el nombre y comprobamos si hay un producto guardado con su nombre
+        		cout<<"ingrese el nombre del producto:"<<endl;
+        		string name;
+        		getline(cin, name);
+        		int nom=-1;
+        		for(int i=0; i<cant_product; i++){
+        			if(nameproduct[i]==name){
+        				nom=i;
+        				break;
+					}
+					
+				}
+				if (nom == -1) {
+                cout << "Producto no encontrado." << endl;
+                return; 
+                }
+				
         		cout<<"ID de venta asignado: ";
         		cout<< venta[pos][can].IDventa << endl;
-        		cout<<"Ingrese el nombre del producto: ";
-        		getline(cin, venta[pos][can].producto);
+        		cout<<"Nombre del producto: ";
+        		venta[pos][can].producto=nameproduct[nom];
+        		cout<<venta[pos][can].producto<<endl;
         		cout<<"Ingrese el precio del producto: ";
         		cin>>venta[pos][can].precio;
         		cin.ignore();
