@@ -22,11 +22,11 @@ int contadorIDporColaborador[maximo] = {0};
 //FUNCIONA PARA AGREGAR DE ANTEMANO CINCO COLABORADORES
 void preAgregarColaborador(){
 	
-    colaborador[0] ={"Josue Mamani", 18, "930106478", 1};
-    colaborador[1] ={"Juan Ramirez", 23, "949659123", 2};
-    colaborador[2] ={"Andres Gutierrez", 19, "956438548", 3};
-    colaborador[3] ={"Diego Castillo", 20, "960435234", 4};
-    colaborador[4] ={"Sebastian Paredes", 18, "954650786", 5};
+    colaborador[0] ={"Josue Fernando Mamani Lima", 18, "930106478", 1};
+    colaborador[1] ={"Juan Carlos Ramirez Torres", 23, "949659123", 2};
+    colaborador[2] ={"Andres Felipe Gutierrez Navarro", 19, "956438548", 3};
+    colaborador[3] ={"Diego Armando Castillo Perez", 20, "960435234", 4};
+    colaborador[4] ={"Sebastian Nicolas Paredes Leon", 18, "954650786", 5};
     //contador aumenta a 5
     cant_colaboradores = 5;
 
@@ -40,7 +40,7 @@ void listarColaboradores() {
 
         for (int i = 0; i < cant_colaboradores; i++) {
             cout << "Colaborador " << i + 1 << endl;
-            cout << "Nombre: " << colaborador[i].nombres << endl;
+            cout << "Nombres: " << colaborador[i].nombres << endl;
             cout << "Edad: " << colaborador[i].edad << endl;
             cout << "Código: " << colaborador[i].codigo << endl;
             cout << "Teléfono: " << colaborador[i].telefono << endl;
