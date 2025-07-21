@@ -1,4 +1,5 @@
 #include<iostream>
+#include <iomanip>
 #include"colaborador.h"
 
 using namespace std;
@@ -35,21 +36,28 @@ void preAgregarColaborador(){
 
 // ----------- FUNCION PARA LISTAR COLABORADORES -----------
 void listarColaboradores() {
-    if (cant_colaboradores > 0) {
-        cout << "Cantidad de colaboradores: " << cant_colaboradores << endl << endl;
+    cout << "\nCantidad de colaboradores: "<<cant_colaboradores<<"\n\n";
 
-        for (int i = 0; i < cant_colaboradores; i++) {
-            cout << "Colaborador " << i + 1 << endl;
-            cout << "Nombre: " << colaborador[i].nombres << endl;
-            cout << "Edad: " << colaborador[i].edad << endl;
-            cout << "Código: " << colaborador[i].codigo << endl;
-            cout << "Teléfono: " << colaborador[i].telefono << endl;
-            cout << endl;
-        }
-    } else {
-        cout << "No hay colaboradores registrados." << endl;
-    }
-    cout<<endl;
+    // Encabezado superior
+    cout << "┌────────┬─────────────────────┬───────────┬──────┐\n";
+    cout << "│ " << left << setw(8) << "Código"
+         << "│ " << setw(20) << "Nombres"
+         << "│ " << setw(11) << "Teléfono"
+         << "│ " << setw(4)  << "Edad" << " │\n";
+
+    // Separador
+    cout << "├────────┼─────────────────────┼───────────┼──────┤\n";
+
+    // Ejemplo de filas
+    for (int i = 0; i < cant_colaboradores; ++i) {
+    cout << "│ " << setw(7) << colaborador[i].codigo
+         << "│ " << setw(20) << colaborador[i].nombres
+         << "│ " << setw(10) << colaborador[i].telefono
+         << "│  " << setw(4)  << colaborador[i].edad << "│\n";
+	}
+
+    // Pie de la tabla
+    cout << "└────────┴─────────────────────┴───────────┴──────┘\n";
 }
 
 
