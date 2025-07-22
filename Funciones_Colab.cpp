@@ -70,9 +70,23 @@ void modificarColaborador() {
         return;
     }
     int codigoBuscado;
-    cout << "Ingrese el código del colaborador que desea modificar: ";
-    cin>> codigoBuscado;
-    cin.ignore();
+    int pos;
+    cout << "\nLista de colaboradores:\n";	//mostrar lista antes de modificar
+    for (int i = 0; i < cant_colaboradores; i++) {
+        cout << "Código: " << colaborador[i].codigo << " - Nombre: " << colaborador[i].nombres << endl;
+    }
+    
+    do {
+        cout << "\nIngrese el código del colaborador que desea modificar: ";
+        cin >> codigoBuscado;
+        cin.ignore();
+        pos = buscarColaboradorPorCodigo(codigoBuscado);
+
+        if (pos == -1) {
+            cout << " No se encontró un colaborador con ese código. Intente nuevamente.\n";
+        }
+    } while (pos == -1);
+    
     for (int i = 0; i < cant_colaboradores; i++) {
         if (colaborador[i].codigo == codigoBuscado) {
 			cout << "\nColaborador encontrado:" << endl;
@@ -92,35 +106,89 @@ void modificarColaborador() {
 			getline(cin, input);
 			if (!input.empty()) colaborador[i].nombres = input;
 
-			cout << "Nuevo teléfono (dejar vacío para mantener): ";
-			getline(cin, input);
-			if (!input.empty()) colaborador[i].telefono = input;
-
-			cout << "Nuevo sexo (dejar vacío para mantener): ";
+			do {
+				cout << "\nNuevo teléfono (9 dígitos, dejar vacío para mantener): ";
+				getline(cin, input);
+				if (input.empty()) break;
+				if (input.length() == 9 && all_of(input.begin(), input.end(), ::isdigit)) {
+					colaborador[i].telefono = input;
+					break;
+				} else {
+					cout << " Teléfono inválido. Debe tener 9 dígitos numéricos.\n";
+				}
+			} while (true);
+			
+			cout << "\nNuevo sexo (dejar vacío para mantener): ";
 			getline(cin, input);
 			if (!input.empty()) colaborador[i].sexo = input;
 
-			cout << "Nuevo DNI (dejar vacío para mantener): ";
-			getline(cin, input);
-			if (!input.empty()) colaborador[i].dni = input;
+			do {
+				cout << "\nNuevo DNI (8 dígitos, dejar vacío para mantener): ";
+				getline(cin, input);
+				if (input.empty()) break;
+				if (input.length() == 8 && all_of(input.begin(), input.end(), ::isdigit)) {
+					colaborador[i].dni = input;
+					break;
+				} else {
+					cout << " DNI inválido. Debe tener 8 dígitos numéricos.\n";
+				}
+			} while (true);
 
-			cout << "Nueva sede (dejar vacío para mantener): ";
+			cout << "\nNueva sede (dejar vacío para mantener): ";
 			getline(cin, input);
 			if (!input.empty()) colaborador[i].sede = input;
 
-			cout << "Nuevo turno (dejar vacío para mantener): ";
+			cout << "\nNuevo turno (dejar vacío para mantener): ";
 			getline(cin, input);
 			if (!input.empty()) colaborador[i].turno = input;
 
-			cout << "Nueva edad (poner -1 para mantener): ";
-			cin >> nuevaEdad;
-			if (nuevaEdad != -1) colaborador[i].edad = nuevaEdad;
-			cin.ignore();
+			while (true) {
+				cout << "\nNueva edad (poner -1 para mantener): ";
+				string edadStr;
+				getline(cin, edadStr);
 
-			cout << "Nuevo sueldo (poner -1 para mantener): ";
-			cin >> nuevoSueldo;
-			if (nuevoSueldo != -1) colaborador[i].sueldo = nuevoSueldo;
-			cin.ignore();
+				bool esValida = !edadStr.empty() && all_of(edadStr.begin(), edadStr.end(), [](char c){
+					return isdigit(c) || c == '-';
+				});
+    			if (esValida) {
+        			try {
+            			nuevaEdad = stoi(edadStr);
+            			if (nuevaEdad == -1) break;
+            			if (nuevaEdad >= 18) {
+                			colaborador[i].edad = nuevaEdad;
+                			break;
+            			} else {
+                		cout << " La edad debe ser mayor o igual a 18 años.\n";
+						}
+					} catch (...) {
+						cout << " Entrada inválida. Intente nuevamente.\n";
+					}
+				} else {
+					cout << " Solo se permiten números (o -1 para mantener).\n";
+				}
+			}
+
+			while (true) {
+				cout << "\nNuevo sueldo (poner -1 para mantener): ";
+				string sueldoStr;
+				getline(cin, sueldoStr);
+
+				bool esDecimal = !sueldoStr.empty() && all_of(sueldoStr.begin(), sueldoStr.end(), [](char c){
+				return isdigit(c) || c == '.' || c == '-';
+				});
+
+				if (esDecimal) {
+					try {
+						nuevoSueldo = stof(sueldoStr);
+						if (nuevoSueldo != -1) colaborador[i].sueldo = nuevoSueldo;
+							break;
+					} catch (...) {
+						cout << " Sueldo inválido. Intente nuevamente.\n";
+					}
+				} else {
+					cout << " Solo se permiten números (decimales o -1 para mantener).\n";
+				}
+			}
 
 			cout << "\n Colaborador modificado exitosamente." << endl;
 			return;
