@@ -1,5 +1,6 @@
 #include<iostream>
 #include <iomanip>
+#include <algorithm>
 #include"colaborador.h"
 
 using namespace std;
@@ -192,22 +193,54 @@ void agregarColaborador() {
 	cout << "Ingrese nombres: ";
 	getline(cin, nuevo.nombres);
 
-	cout << "Ingrese edad: ";
-	cin >> nuevo.edad;
-	cin.ignore();
+	string entradaEdad;
+	bool edadValida;
+	do {
+		edadValida = true;
+		cout << "Ingrese edad: ";
+		getline(cin, entradaEdad);
+		if (!all_of(entradaEdad.begin(), entradaEdad.end(), ::isdigit)) {
+			cout << "Edad inválida. Ingrese solo números.\n";
+			edadValida = false;
+		} else {
+			nuevo.edad = stoi(entradaEdad);
+			if (nuevo.edad < 18) {
+				cout << "Edad mínima permitida: 18 años.\n";
+				edadValida = false;
+			}
+		}
+	} while (!edadValida);
 
-	cout << "Ingrese teléfono: ";
-	getline(cin, nuevo.telefono);
+	do {
+		cout << "Ingrese teléfono (9 dígitos): ";
+		getline(cin, nuevo.telefono);
+	} while (nuevo.telefono.length() != 9 || !all_of(nuevo.telefono.begin(), nuevo.telefono.end(), ::isdigit));
 	
 	cout << "Ingrese sexo (Masculino/Femenino): ";
 	getline(cin, nuevo.sexo);
 
-	cout << "Ingrese DNI: ";
-	getline(cin, nuevo.dni);
+	do {
+		cout << "Ingrese DNI (8 dígitos): ";
+		getline(cin, nuevo.dni);
+	} while (nuevo.dni.length() != 8 || !all_of(nuevo.dni.begin(), nuevo.dni.end(), ::isdigit));
 
-	cout << "Ingrese sueldo (S/): ";
-	cin >> nuevo.sueldo;
-	cin.ignore();
+	string entradaSueldo;
+	bool sueldoValido;
+	do {
+		sueldoValido = true;
+		cout << "Ingrese sueldo (S/): ";
+		getline(cin, entradaSueldo);
+		try {
+			nuevo.sueldo = stof(entradaSueldo);
+			if (nuevo.sueldo <= 0) {
+				cout << "El sueldo debe ser mayor que 0.\n";
+				sueldoValido = false;
+			}
+		} catch (...) {
+			cout << "Sueldo inválido. Ingrese solo números.\n";
+			sueldoValido = false;
+		}
+	} while (!sueldoValido);
 
 	cout << "Ingrese sede: ";
 	getline(cin, nuevo.sede);
