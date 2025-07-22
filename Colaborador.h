@@ -6,6 +6,7 @@ using namespace std;
 //variables para los nombres de venta 
 extern string nameproduct[];
 extern int cant_product;
+extern int ultimoCodigoAsignado;
 
 //estructura datos del colaborador
 struct datosColab{
@@ -13,6 +14,11 @@ struct datosColab{
     int edad;
     string telefono;
     int codigo;
+    string sexo;
+    string dni;
+    float sueldo;
+    string sede;
+    string turno;
 };
 
 extern const int maximo;

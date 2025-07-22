@@ -1,4 +1,5 @@
 #include<iostream>
+#include <iomanip>
 #include"colaborador.h"
 
 using namespace std;
@@ -19,14 +20,16 @@ int cant_ventas[maximo]={0};
 //variable para designar el idventa de cada colaborador
 int contadorIDporColaborador[maximo] = {0};
 
+int ultimoCodigoAsignado = 105;
+
 //FUNCIONA PARA AGREGAR DE ANTEMANO CINCO COLABORADORES
 void preAgregarColaborador(){
 	
-    colaborador[0] ={"Josue Fernando Mamani Lima", 18, "930106478", 1};
-    colaborador[1] ={"Juan Carlos Ramirez Torres", 23, "949659123", 2};
-    colaborador[2] ={"Andres Felipe Gutierrez Navarro", 19, "956438548", 3};
-    colaborador[3] ={"Diego Armando Castillo Perez", 20, "960435234", 4};
-    colaborador[4] ={"Sebastian Nicolas Paredes Leon", 18, "954650786", 5};
+    colaborador[0] ={"Josue Mamani", 28, "930106478", 101, "Masculino", "14224588", 2300.0, "Lima", "Mañana"};
+    colaborador[1] ={"Juan Ramirez", 31, "949659123", 102, "Masculino", "87654321", 2100.0, "Arequipa", "Tarde"};
+    colaborador[2] ={"Ana Torres", 35, "956438548", 103, "Femenino", "11223344", 2600.0, "Cusco", "Noche"};
+    colaborador[3] ={"Carla Mendoza", 27, "960435234", 104, "Femenino", "44332211", 2300.0, "Tacna", "Mañana"};
+    colaborador[4] ={"Sebastian Paredes", 32, "954650786", 105, "Masculino", "99887766", 2100.0, "Trujillo", "Tarde"};
     //contador aumenta a 5
     cant_colaboradores = 5;
 
@@ -35,21 +38,27 @@ void preAgregarColaborador(){
 
 // ----------- FUNCION PARA LISTAR COLABORADORES -----------
 void listarColaboradores() {
-    if (cant_colaboradores > 0) {
-        cout << "Cantidad de colaboradores: " << cant_colaboradores << endl << endl;
+    cout << "\nCantidad de colaboradores: "<<cant_colaboradores<<"\n\n";
 
-        for (int i = 0; i < cant_colaboradores; i++) {
-            cout << "Colaborador " << i + 1 << endl;
-            cout << "Nombres: " << colaborador[i].nombres << endl;
-            cout << "Edad: " << colaborador[i].edad << endl;
-            cout << "Código: " << colaborador[i].codigo << endl;
-            cout << "Teléfono: " << colaborador[i].telefono << endl;
-            cout << endl;
-        }
-    } else {
-        cout << "No hay colaboradores registrados." << endl;
+	// Encabezado superior
+	cout << "┌────────┬──────────────────────┬──────┬───────────┬──────────┬───────────┬──────────┬────────┬────────────┐\n";
+	cout << "│ Código │ Nombres              │ Edad │ Teléfono  │ DNI      │ Sexo      │ Sede     │ Turno  │ Sueldo     │\n";
+	cout << "├────────┼──────────────────────┼──────┼───────────┼──────────┼───────────┼──────────┼────────┼────────────┤\n";
+
+	for (int i = 0; i < cant_colaboradores; ++i) {
+		cout << "│ " << left << setw(6) << colaborador[i].codigo
+			<< " │ " << setw(20) << colaborador[i].nombres
+			<< " │ " << setw(4) << colaborador[i].edad
+			<< " │ " << setw(9) << colaborador[i].telefono
+			<< " │ " << setw(8) << colaborador[i].dni
+			<< " │ " << setw(9) << colaborador[i].sexo
+			<< " │ " << setw(8) << colaborador[i].sede
+			<< " │ " << setw(6) << colaborador[i].turno
+			<< " │ S/ " << fixed << setprecision(2) << setw(7) << colaborador[i].sueldo << " │\n";
     }
-    cout<<endl;
+
+    // Pie de la tabla
+	cout << "└────────┴──────────────────────┴──────┴───────────┴──────────┴───────────┴──────────┴────────┴────────────┘\n";
 }
 
 
@@ -65,54 +74,77 @@ void modificarColaborador() {
     cin.ignore();
     for (int i = 0; i < cant_colaboradores; i++) {
         if (colaborador[i].codigo == codigoBuscado) {
-            cout << "\nColaborador encontrado:" << endl;
-            cout << "Nombre actual: " << colaborador[i].nombres << endl;
-            cout << "Edad actual: " << colaborador[i].edad << endl;
-            cout << "Teléfono actual: " << colaborador[i].telefono << endl;
-            string nuevoNombre, nuevoTelefono;
-            int nuevaEdad;
-            cout << "\nNuevo nombre (dejar vacío para mantener): ";
-            getline(cin, nuevoNombre);
-            if (!nuevoNombre.empty()) {
-                colaborador[i].nombres = nuevoNombre;
-            }
-            cout << "Nuevo teléfono (dejar vacío para mantener): ";
-            getline(cin, nuevoTelefono);
-            if (!nuevoTelefono.empty()) {
-                colaborador[i].telefono = nuevoTelefono;
-            }
-            cout << "Nueva edad (poner -1 para mantener): ";
-            cin >> nuevaEdad;
-            if (nuevaEdad != -1) {
-                colaborador[i].edad = nuevaEdad;
-            }
+			cout << "\nColaborador encontrado:" << endl;
+			cout << "Nombre actual: " << colaborador[i].nombres << endl;
+			cout << "Edad actual: " << colaborador[i].edad << endl;
+			cout << "Teléfono actual: " << colaborador[i].telefono << endl;
+			cout << "Sexo actual: " << colaborador[i].sexo << endl;
+			cout << "DNI actual: " << colaborador[i].dni << endl;
+			cout << "Sede actual: " << colaborador[i].sede << endl;
+			cout << "Turno actual: " << colaborador[i].turno << endl;
+			cout << "Sueldo actual: S/ " << colaborador[i].sueldo << endl;
+			string input;
+			int nuevaEdad;
+			float nuevoSueldo;
 
-            cout << "\n Colaborador modificado exitosamente." << endl;
-            return;
-        }
-         cout<<endl;
-    }
-    cout << "\n No se encontró un colaborador con ese código." << endl;
-     cout<<endl;
+			cout << "\nNuevo nombre (dejar vacío para mantener): ";
+			getline(cin, input);
+			if (!input.empty()) colaborador[i].nombres = input;
+
+			cout << "Nuevo teléfono (dejar vacío para mantener): ";
+			getline(cin, input);
+			if (!input.empty()) colaborador[i].telefono = input;
+
+			cout << "Nuevo sexo (dejar vacío para mantener): ";
+			getline(cin, input);
+			if (!input.empty()) colaborador[i].sexo = input;
+
+			cout << "Nuevo DNI (dejar vacío para mantener): ";
+			getline(cin, input);
+			if (!input.empty()) colaborador[i].dni = input;
+
+			cout << "Nueva sede (dejar vacío para mantener): ";
+			getline(cin, input);
+			if (!input.empty()) colaborador[i].sede = input;
+
+			cout << "Nuevo turno (dejar vacío para mantener): ";
+			getline(cin, input);
+			if (!input.empty()) colaborador[i].turno = input;
+
+			cout << "Nueva edad (poner -1 para mantener): ";
+			cin >> nuevaEdad;
+			if (nuevaEdad != -1) colaborador[i].edad = nuevaEdad;
+			cin.ignore();
+
+			cout << "Nuevo sueldo (poner -1 para mantener): ";
+			cin >> nuevoSueldo;
+			if (nuevoSueldo != -1) colaborador[i].sueldo = nuevoSueldo;
+			cin.ignore();
+
+			cout << "\n Colaborador modificado exitosamente." << endl;
+			return;
+		}
+	}
+	cout << "\n No se encontró un colaborador con ese código." << endl;
+	cout<<endl;
 }
 
 
 // ----------- FUNCION PARA ELIMINAR COLABORADOR -----------
 void eliminarColaborador() {
 //mostramos el codigo y nombre de los colaboradores
-cout<<"Lista de colaboradores \n";
+cout<<"\nLista de colaboradores \n";
 for(int i=0; i<cant_colaboradores; i++){
 	cout<<"Código: "<<colaborador[i].codigo<<endl;
 	cout<<"Nombre: "<<colaborador[i].nombres<<endl;
 	cout<<endl;
 }
-cout<<endl;
 
 int cod;
-//condicion para no hacer nada si hay 0 colaboradores
+//condicion si hay 0 colaboradores
 if(cant_colaboradores>0){
 	
-	cout<<"Ingrese el código de la persona "<<endl;
+	cout<<"Ingrese el código de la persona: "<<endl;
 	cin>>cod;
 	
 	int pos=buscarColaboradorPorCodigo(cod);
@@ -122,7 +154,7 @@ if(cant_colaboradores>0){
 	return; 
 	}
 
-	cout<<"Eliminaste al colaborador "<<colaborador[pos].nombres<<endl;
+	cout<<" Eliminaste al colaborador. "<<colaborador[pos].nombres<<endl;
 	if(pos>=0 and pos<cant_colaboradores){
 		
 		//bucle para correr los datos del arreglo
@@ -142,41 +174,56 @@ if(cant_colaboradores>0){
 	
     
 }else{
-	cout<<"No hay colaboradores "<<endl;
+	cout<<"No hay colaboradores.\n"<<endl;
 }
-cout<<endl;
 }
 
 
 // ----------- FUNCION PARA AGREGAR COLABORADOR -----------
 
 void agregarColaborador() {
-    if (cant_colaboradores >= maximo) {
-        cout << "No se pueden agregar más colaboradores (límite alcanzado)." << endl;
-        return;
-    }
+	cout<<"\n Agregando nuevo colaborador:\n";
+	if (cant_colaboradores >= maximo) {
+		cout << "No se pueden agregar más colaboradores (límite alcanzado)." << endl;
+		return;
+	}
 
-    datosColab nuevo;
+	datosColab nuevo;
 
-    cin.ignore();
-    cout << "Ingrese nombres: ";
-    getline(cin, nuevo.nombres);
+	cin.ignore();
+	cout << "Ingrese nombres: ";
+	getline(cin, nuevo.nombres);
 
-    cout << "Ingrese edad: ";
-    cin >> nuevo.edad;
-    cin.ignore();
+	cout << "Ingrese edad: ";
+	cin >> nuevo.edad;
+	cin.ignore();
 
-    cout << "Ingrese teléfono: ";
-    getline(cin, nuevo.telefono);
+	cout << "Ingrese teléfono: ";
+	getline(cin, nuevo.telefono);
+	
+	cout << "Ingrese sexo (Masculino/Femenino): ";
+	getline(cin, nuevo.sexo);
 
-    cout << "Ingrese código: ";
-    cin>> nuevo.codigo;
-    cin.ignore();
-    colaborador[cant_colaboradores] = nuevo;
-    cant_colaboradores++;
+	cout << "Ingrese DNI: ";
+	getline(cin, nuevo.dni);
 
-    cout << " Colaborador agregado correctamente.\n";
-    cout<<endl;
+	cout << "Ingrese sueldo (S/): ";
+	cin >> nuevo.sueldo;
+	cin.ignore();
+
+	cout << "Ingrese sede: ";
+	getline(cin, nuevo.sede);
+
+	cout << "Ingrese turno (Mañana/Tarde/Noche): ";
+	getline(cin, nuevo.turno);
+
+	// Asignación automática del código
+	ultimoCodigoAsignado++;
+	nuevo.codigo = ultimoCodigoAsignado;
+	colaborador[cant_colaboradores] = nuevo;
+	cant_colaboradores++;
+	cout << " Colaborador agregado correctamente. Código asignado: " << nuevo.codigo;
+	cout<<endl;
 }
 
 
