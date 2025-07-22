@@ -23,9 +23,9 @@ int main() {
     	cout << "[2] GESTIÓN DE VENTAS" << endl;
     	SetConsoleTextAttribute(hConsole, 11); // Azul claro
   	 	cout << "[3] GESTIÓN DE INFORMACIÓN" <<endl;
-  	 	SetConsoleTextAttribute(hConsole, 12); // Rojo claro
+		SetConsoleTextAttribute(hConsole, 6); // Amarillo oscuro
   	 	cout << "[4] GESTION DE PRODUCTOS PREDEFINIDOS"<<endl;
-  	 	
+  	 	SetConsoleTextAttribute(hConsole, 12); // Rojo claro
 		cout << "[5] SALIR DEL PROGRAMA" <<endl;
 		SetConsoleTextAttribute(hConsole, 7); // Blanco
     	do{															//Elección
@@ -153,10 +153,11 @@ int main() {
 			int selec;
 			
 			do{
-				cout << "-------------OPCIONES-----------" << endl;	//Opciones de GESTION DE INFORMACION
-				cout << "1:  agregar nombre del producto" << endl;
-				cout << "2:  listar nombres de los productos" << endl;
-				cout << "3:  eliminar nombres de productos" << endl;
+				SetConsoleTextAttribute(hConsole, 6); // Amarillo oscuro
+				cout << "-------------OPCIONES-----------" << endl;	//Opciones de GESTION DE PRPDUCTO
+				cout << "1:  Agregar nombre del producto" << endl;
+				cout << "2:  Listar nombres de los productos" << endl;
+				cout << "3:  Eliminar nombres de productos" << endl;
 				cout << "4:  Salir de la página"<<endl;
 				cout << "Elija una opción: " << endl;
 				cin>>selec;
