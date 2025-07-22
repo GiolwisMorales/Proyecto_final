@@ -133,26 +133,25 @@ void modificarColaborador() {
 // ----------- FUNCION PARA ELIMINAR COLABORADOR -----------
 void eliminarColaborador() {
 //mostramos el codigo y nombre de los colaboradores
-cout<<"\nLista de colaboradores \n";
-for(int i=0; i<cant_colaboradores; i++){
-	cout<<"Código: "<<colaborador[i].codigo<<endl;
-	cout<<"Nombre: "<<colaborador[i].nombres<<endl;
-	cout<<endl;
-}
-
-int cod;
-//condicion si hay 0 colaboradores
-if(cant_colaboradores>0){
-	
-	cout<<"Ingrese el código de la persona: "<<endl;
-	cin>>cod;
-	
-	int pos=buscarColaboradorPorCodigo(cod);
-	
-	if (pos == -1){ 
-	cout<<"No existe\n"; 
-	return; 
+	cout << "\nLista de colaboradores registrados:\n";
+	for (int i = 0; i < cant_colaboradores; i++) {
+		cout << "Código: " << colaborador[i].codigo << " - "
+			<< colaborador[i].nombres << endl;
 	}
+	cout<<endl;
+	int cod;
+	int pos = -1;
+	//condicion si hay 0 colaboradores
+	if(cant_colaboradores>0){
+	//bucle para reintentar
+	do {
+        cout << "Ingrese el código de la persona: ";
+        cin >> cod;
+        pos = buscarColaboradorPorCodigo(cod);
+        if (pos == -1) {
+            cout << "Código no existe. Intente nuevamente.\n";
+        }
+    } while (pos == -1);
 
 	cout<<" Eliminaste al colaborador. "<<colaborador[pos].nombres<<endl;
 	if(pos>=0 and pos<cant_colaboradores){
@@ -172,10 +171,9 @@ if(cant_colaboradores>0){
 		cant_ventas[cant_colaboradores] = 0;
 	}
 	
-    
-}else{
+	}else{
 	cout<<"No hay colaboradores.\n"<<endl;
-}
+	}
 }
 
 
