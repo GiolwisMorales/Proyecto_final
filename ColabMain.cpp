@@ -70,7 +70,6 @@ int main() {
 					cout << "Opción no válida." << endl;
 					cout<<endl;
 			   }
-			   cout<<endl;
 			   
 			}while(opcion!=5);			//se repite siempre que no se elija Salir de la página
 			cout<<endl;

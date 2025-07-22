@@ -14,6 +14,11 @@ struct datosColab{
     int edad;
     string telefono;
     int codigo;
+    string sexo;
+    string dni;
+    float sueldo;
+    string sede;
+    string turno;
 };
 
 extern const int maximo;
