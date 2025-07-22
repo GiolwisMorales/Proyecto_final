@@ -6,6 +6,7 @@ using namespace std;
 //variables para los nombres de venta 
 extern string nameproduct[];
 extern int cant_product;
+extern int ultimoCodigoAsignado;
 
 //estructura datos del colaborador
 struct datosColab{

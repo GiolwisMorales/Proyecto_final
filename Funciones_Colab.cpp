@@ -20,6 +20,8 @@ int cant_ventas[maximo]={0};
 //variable para designar el idventa de cada colaborador
 int contadorIDporColaborador[maximo] = {0};
 
+int ultimoCodigoAsignado = 105;
+
 //FUNCIONA PARA AGREGAR DE ANTEMANO CINCO COLABORADORES
 void preAgregarColaborador(){
 	
@@ -159,32 +161,31 @@ cout<<endl;
 // ----------- FUNCION PARA AGREGAR COLABORADOR -----------
 
 void agregarColaborador() {
-    if (cant_colaboradores >= maximo) {
-        cout << "No se pueden agregar más colaboradores (límite alcanzado)." << endl;
-        return;
-    }
+	if (cant_colaboradores >= maximo) {
+		cout << "No se pueden agregar más colaboradores (límite alcanzado)." << endl;
+		return;
+	}
 
-    datosColab nuevo;
+	datosColab nuevo;
 
-    cin.ignore();
-    cout << "Ingrese nombres: ";
-    getline(cin, nuevo.nombres);
+	cin.ignore();
+	cout << "Ingrese nombres: ";
+	getline(cin, nuevo.nombres);
 
-    cout << "Ingrese edad: ";
-    cin >> nuevo.edad;
-    cin.ignore();
+	cout << "Ingrese edad: ";
+	cin >> nuevo.edad;
+	cin.ignore();
 
-    cout << "Ingrese teléfono: ";
-    getline(cin, nuevo.telefono);
-
-    cout << "Ingrese código: ";
-    cin>> nuevo.codigo;
-    cin.ignore();
-    colaborador[cant_colaboradores] = nuevo;
-    cant_colaboradores++;
-
-    cout << " Colaborador agregado correctamente.\n";
-    cout<<endl;
+	cout << "Ingrese teléfono: ";
+	getline(cin, nuevo.telefono);
+	// Asignación automática del código
+	ultimoCodigoAsignado++;
+	nuevo.codigo = ultimoCodigoAsignado;
+	// Guardamos el nuevo colaborador
+	colaborador[cant_colaboradores] = nuevo;
+	cant_colaboradores++;
+	cout << "Colaborador agregado correctamente. Código asignado: " << nuevo.codigo;
+	cout<<endl;
 }
 
 
